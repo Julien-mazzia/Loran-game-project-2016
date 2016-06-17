@@ -1,9 +1,9 @@
 package model.Action;
 
-public class AddPoints implements IAction{
+public class Points implements IAction{
 	
 	//This method ugrape the score
-	public AddPoints() {
+	public Points(String type) {
 		// TODO Auto-generated constructor stub
 	}
 
