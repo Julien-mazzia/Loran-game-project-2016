@@ -18,17 +18,25 @@ public class Maps {
 	
 	private Lorann lorann;
 
-	public Maps(final int ID_object, final int ID_map, final String Object, final int x, final int y) {
-		this.setId(ID_object);
-		this.setId_map(ID_map);
-		this.setObject(Object);
-		this.setX(x);
-		this.setY(y);
-		System.out.println(Object);
-		lorann = new Lorann();
-		lorann.Location(x, y);
+	public Maps(char[][] Elements) {
+		//this.setId(ID_object);
+		//this.setId_map(ID_map);
+		//this.setObject(Object);
+		//this.setX(x);
+		//this.setY(y);
+		//System.out.println("Name of the element : "+Object);
+		//lorann = new Lorann();
+		//lorann.Location(x, y);
+		
+		for(int k=0; k<15; k++){
+			for(int l=0; l<19; l++){
+				
+				System.out.println("Element : "+ Elements[k][l]);
+				
+			}
+		
 	}
-
+	}
 	public int getId() {
 		return id;
 	}
@@ -73,7 +81,7 @@ public class Maps {
 	 * Instantiates a new hello world.
 	 */
 	public Maps() {
-		this(0, 0, "", 0, 0);
+		//this(Elements);
 	}
 
 	

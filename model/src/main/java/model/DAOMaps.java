@@ -17,25 +17,60 @@ public class DAOMaps extends DAOEntity{
 	 *
 	 * @see model.DAOEntity#find(java.lang.String)
 	 */
-	public Maps find1(int id_map) {
+	public Maps find1() {
 		Maps maps = new Maps();
 		int x = 0;
 		int y = 0;
+		char Elements[][]= new char[15][20];
+		String Element;
+		char ChElement = 0;
 		String Object = null;
-
+		int comp = 2;
+		
 		try {
-			final String sql = "{call getMap(?)}";
+			final String sql = "{call getMap()}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
-			call.setInt(1, id_map);
+			//call.setInt(1, comp);
+			//call.execute();
+			ResultSet resultSet = call.getResultSet();
+			
+			//call.setInt(1, comp);
 			call.execute();
-			final ResultSet resultSet = call.getResultSet();
-			if (resultSet.first()) {
-				maps = new Maps(resultSet.getInt("Id_object"), resultSet.getInt("Id_map"), resultSet.getString("Object"), resultSet.getInt("x"), resultSet.getInt("y"));
+			resultSet = call.getResultSet();
+			
+			while(resultSet.next()){
+				x = resultSet.getInt("x");
+				y = resultSet.getInt("y");
+				Element = resultSet.getString("Object");
+				if(Element.length()>0){
+					ChElement = Element.charAt(0);
+				}else{
+					ChElement = '-';
+				}
+				/*char* un;
+				string deux;
+				char c = s.charAt(0);*/
+				Elements[x][y] = ChElement;
+				//System.out.println(Elements[x][y]);
+				//System.out.println("X :"+x+" Y :"+y+" Element :"+ChElement);
+				
+				comp++;
 			}
+			
+			/*for(int k=0; k<15; k++){
+				for(int l=0; l<19; l++){
+					
+					System.out.println("Element : "+ Elements[k][l]);
+					
+				}
+			
+		}*/
+			maps = new Maps(Elements);
 			return maps;
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
+		
 		return null;
 	}
 
