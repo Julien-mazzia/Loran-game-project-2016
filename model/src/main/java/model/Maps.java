@@ -25,17 +25,21 @@ public class Maps {
 		//this.setX(x);
 		//this.setY(y);
 		//System.out.println("Name of the element : "+Object);
-		//lorann = new Lorann();
-		//lorann.Location(x, y);
+		
 		
 		for(int k=0; k<15; k++){
 			for(int l=0; l<19; l++){
 				
-				System.out.println("Element : "+ Elements[k][l]);
+				if(Elements[k][l]=='l'){
+					x=k;
+					y=l;
+				}
 				
 			}
 		
 	}
+	lorann = new Lorann(x,y);
+	//lorann.Location(x, y);
 	}
 	public int getId() {
 		return id;

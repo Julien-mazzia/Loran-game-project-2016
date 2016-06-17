@@ -5,7 +5,7 @@ import model.Action.Action;
 public class SerpentDoor {
 
 	public SerpentDoor(int x, int y, String type) {
-		Action action = new Action(ObjectComportement.MORTAL, ObjectComportement.PENETRABLE, ObjectComportement.LINKED, "");
+		Action action = new Action(ObjectComportement.MORTAL, ObjectComportement.PENETRABLE, ObjectComportement.LINKED, type);
 	}
 
 }

@@ -22,7 +22,7 @@ public class Action {
 			Points points = new Points(type);
 		}
 		if(comp2==ObjectComportement.PENETRABLE && comp1!=ObjectComportement.MORTAL){
-			Move move = new Move(type);
+			Movement move = new Movement(type);
 		}
 		if(comp1==ObjectComportement.LINKED || comp2==ObjectComportement.PENETRABLE){
 			ChangeDoor door = new ChangeDoor();

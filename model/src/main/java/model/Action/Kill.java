@@ -4,7 +4,11 @@ public class Kill implements IAction {
 
 	// This method kill the character
 	public Kill(String type) {
-		// TODO Auto-generated constructor stub
+		if(type=="Lorann"){
+			//End();
+		}else if(type=="Monster"){
+			//Update table for monster
+		}
 	}
 
 	public void Action(String Object, String type) {

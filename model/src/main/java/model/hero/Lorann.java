@@ -12,7 +12,7 @@ public class Lorann implements KeyListener {
 	int y;
 
 	// Lorann method get x and y position of Lorann
-	public Lorann() {
+	public Lorann(int x, int y) {
 		
 		//Monster monster = new Monster(5, 10);
 		Move move = new Move(1, "Lorann", x, y);
@@ -44,21 +44,5 @@ public class Lorann implements KeyListener {
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 
-	}
-
-	public int getX() {
-		return x;
-	}
-
-	public void setX(int x) {
-		this.x = x;
-	}
-
-	public int getY() {
-		return y;
-	}
-
-	public void setY(int y) {
-		this.y = y;
 	}
 }
