@@ -36,7 +36,6 @@ public class DAOMaps extends DAOEntity{
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
-		System.out.println(id);
 		return null;
 	}
 
