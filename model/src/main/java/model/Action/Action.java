@@ -10,7 +10,7 @@ public class Action {
 	 * appropriate action
 	 */
 	public Action(ObjectComportement comp1, ObjectComportement comp2, ObjectComportement comp3, String type) {
-		
+		int x;
 	}
 
 }
