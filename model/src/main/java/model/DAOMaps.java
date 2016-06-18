@@ -28,6 +28,9 @@ public class DAOMaps extends DAOEntity{
 		int comp = 2;
 		
 		try {
+			final String sql1 = "{call fillTable()}";
+			final CallableStatement call1 = this.getConnection().prepareCall(sql1);
+			call1.execute();
 			final String sql = "{call getMap()}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			//call.setInt(1, comp);

@@ -1,7 +1,7 @@
 package model.Mobile;
 
 import model.Action.Movement;
-import model.object.Kneecap;
+import model.object.*;
 
 public class Mobile {
 	int x;
@@ -10,8 +10,8 @@ public class Mobile {
 	 * Mobile collect the new positions of x and y and then send it to Element
 	 */
 	public Mobile(int x, int y, String type) {
-		//Kneecap knee = new Kneecap(x, y, type);
-		Movement move = new Movement("Lorann", x, y);
+		//SerpentDoor knee = new SerpentDoor(x, y, type);
+		//Movement move = new Movement("Lorann", x, y);
 		this.x=x;
 		this.y=y;
 	}

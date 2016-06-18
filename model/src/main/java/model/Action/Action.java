@@ -14,18 +14,23 @@ public class Action {
 	public Action(ObjectComportement comp1, ObjectComportement comp2, ObjectComportement comp3, String type, int x, int y) {
 		if(comp1==ObjectComportement.BLOCKING || comp1==ObjectComportement.POINTS && type=="Monster"){
 			Block block = new Block(type);
+			System.out.println("Bonjour");
 		}
 		if(comp1==ObjectComportement.MORTAL && type!="Monster"){
 			this.kill = new Kill(type);
+			System.out.println("Salut");
 		}
 		if(comp1==ObjectComportement.POINTS){
 			Points points = new Points(type);
+			System.out.println("Hello");
 		}
 		if(comp2==ObjectComportement.PENETRABLE && comp1!=ObjectComportement.MORTAL){
 			Movement move = new Movement(type, x, y);
+			System.out.println("Hi");
 		}
-		if(comp1==ObjectComportement.LINKED || comp2==ObjectComportement.PENETRABLE){
+		if(comp1==ObjectComportement.LINKED && comp2==ObjectComportement.PENETRABLE){
 			ChangeDoor door = new ChangeDoor();
+			System.out.println("Hola");
 		}
 	}
 	
