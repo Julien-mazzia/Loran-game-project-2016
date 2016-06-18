@@ -24,13 +24,13 @@ public class Action {
 			Points points = new Points(type);
 			System.out.println("Hello");
 		}
-		if(comp2==ObjectComportement.PENETRABLE && comp1!=ObjectComportement.MORTAL){
-			Movement move = new Movement(type, x, y);
-			System.out.println("Hi");
-		}
 		if(comp1==ObjectComportement.LINKED && comp2==ObjectComportement.PENETRABLE){
 			ChangeDoor door = new ChangeDoor();
 			System.out.println("Hola");
+		}
+		if(comp2==ObjectComportement.PENETRABLE && comp1!=ObjectComportement.MORTAL){
+			Movement move = new Movement(type, x, y);
+			System.out.println("Hi");
 		}
 	}
 	

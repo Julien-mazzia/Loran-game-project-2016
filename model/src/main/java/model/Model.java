@@ -53,7 +53,10 @@ public class Model extends Observable implements IModel {
 	public void loadMessage(final String key) {
 		try {
 			final DAOMaps daomaps = new DAOMaps(DBConnection.getInstance().getConnection());
+			
 			daomaps.find1();
+			final DAOGetSprite daoSprite = new DAOGetSprite(DBConnection.getInstance().getConnection());
+			daoSprite.getSprite(1, 0);
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
