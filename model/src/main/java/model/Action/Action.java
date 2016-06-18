@@ -11,7 +11,7 @@ public class Action {
 	 */
 	
 	private Kill kill;
-	public Action(ObjectComportement comp1, ObjectComportement comp2, ObjectComportement comp3, String type) {
+	public Action(ObjectComportement comp1, ObjectComportement comp2, ObjectComportement comp3, String type, int x, int y) {
 		if(comp1==ObjectComportement.BLOCKING){
 			Block block = new Block(type);
 		}
@@ -22,7 +22,7 @@ public class Action {
 			Points points = new Points(type);
 		}
 		if(comp2==ObjectComportement.PENETRABLE && comp1!=ObjectComportement.MORTAL){
-			Movement move = new Movement(type);
+			Movement move = new Movement(type, x, y);
 		}
 		if(comp1==ObjectComportement.LINKED || comp2==ObjectComportement.PENETRABLE){
 			ChangeDoor door = new ChangeDoor();

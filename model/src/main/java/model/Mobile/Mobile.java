@@ -11,7 +11,7 @@ public class Mobile {
 	 */
 	public Mobile(int x, int y, String type) {
 		//Kneecap knee = new Kneecap(x, y, type);
-		Movement move = new Movement("Lorann");
+		Movement move = new Movement("Lorann", x, y);
 		this.x=x;
 		this.y=y;
 	}

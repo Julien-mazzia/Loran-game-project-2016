@@ -21,16 +21,16 @@ public class Move {
 		
 		switch(move){
 			case 1:
-				up = new Up(x, y, type);
+				up = new Up(x, y-1, type);
 				break;
 			case 2:
-				down = new Down(x, y, type);
+				down = new Down(x, y+1, type);
 				break;
 			case 3:
-				left = new Left(x, y, type);
+				left = new Left(x-1, y, type);
 				break;
 			case 4:
-				right = new Right(x, y, type);
+				right = new Right(x+1, y, type);
 				break;
 		}
 	}

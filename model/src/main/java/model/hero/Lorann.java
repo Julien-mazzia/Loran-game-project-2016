@@ -15,7 +15,7 @@ public class Lorann implements KeyListener {
 	public Lorann(int x, int y) {
 		
 		//Monster monster = new Monster(5, 10);
-		Move move = new Move(1, "Lorann", x, y);
+		Move move = new Move(4, "Lorann", x, y);
 	}
 	
 	public void Location(int x, int y){
