@@ -16,6 +16,7 @@ public class DAOUpdate extends DAOEntity{
 	public Maps updateSprite(int x, int y, String element) {
 		
 		try {
+			System.out.println(element);
 			final String sql = "{call updateSprite(?,?,?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			call.setInt(1, x);
@@ -23,8 +24,8 @@ public class DAOUpdate extends DAOEntity{
 			call.setString(3, element);
 			call.execute();
 			
-			final DAOGetLorannPosition dao = new DAOGetLorannPosition(DBConnection.getInstance().getConnection());
-			dao.getLorannPosition();
+			final DAOGetPosition dao = new DAOGetPosition(DBConnection.getInstance().getConnection());
+			dao.getPosition(element);
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}

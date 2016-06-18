@@ -11,6 +11,7 @@ public class Mobile {
 	 * Mobile collect the new positions of x and y and then send it to Element
 	 */
 	public Mobile(int x, int y, String type) {
+		
 		this.x=x;
 		this.y=y;
 		Model model = new Model();

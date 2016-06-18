@@ -15,23 +15,22 @@ public class RandomMove implements IMonster {
 		int choice = 1+r.nextInt(5-1);
 		switch(choice){
 			case 1 :
-				Up up = new Up(x,y,type);
+				Up up = new Up(x,y-1,type);
 				break;
 			case 2 :
-				Down down = new Down(x,y,type);
+				Down down = new Down(x,y+1,type);
 				break;
 			case 3 :
-				Left left = new Left(x,y,type);
+				Left left = new Left(x-1,y,type);
 				break;
 			case 4 :
-				Right right = new Right(x,y,type);
+				Right right = new Right(x+1,y,type);
 				break;
 		}
 	}
 
 	public void Monster(int x, int y) {
 		// TODO Auto-generated method stub
-
+	
 	}
-
 }

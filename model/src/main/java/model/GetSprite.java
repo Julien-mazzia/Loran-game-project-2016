@@ -16,7 +16,16 @@ public class GetSprite {
 			case 'l':
 
 				break;
-			case 'm':
+			case 'g':
+
+				break;
+			case 'h':
+
+				break;
+			case 'z':
+
+				break;
+			case 'r':
 
 				break;
 			case 'e':

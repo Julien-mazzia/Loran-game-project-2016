@@ -9,9 +9,18 @@ public class Movement implements IAction{
 		Model model = new Model();
 		if(type =="Lorann"){
 			model.updateSprite(x, y, "l");
-		}else if(type=="Monster"){
-			model.updateSprite(x, y, "m");
-		}else if(type=="Spell"){
+		}else if(type=="monster1"){
+			model.updateSprite(x, y, "g");
+		}else if(type=="monster2"){
+			model.updateSprite(x, y, "h");
+		}
+		else if(type=="monster3"){
+			model.updateSprite(x, y, "z");
+		}
+		else if(type=="monster4"){
+			model.updateSprite(x, y, "r");
+		}
+		else if(type=="Spell"){
 			model.updateSprite(x, y, "s");
 		}
 		

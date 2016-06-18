@@ -5,20 +5,21 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DAOGetLorannPosition extends DAOEntity{
+public class DAOGetPosition extends DAOEntity{
 	
-	public DAOGetLorannPosition(final Connection connection) throws SQLException{
+	public DAOGetPosition(final Connection connection) throws SQLException{
 		super(connection);
 	}
 
-	public void getLorannPosition() {
+	public void getPosition(String element) {
 		int x;
 		int y;
 		
 		try {
-			final String sql = "{call getLorann()}";
+			final String sql = "{call getPosition(?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			//ResultSet resultSet = call.getResultSet();
+			call.setString(1, element);
 			call.execute();
 			ResultSet resultSet = call.getResultSet();
 			
@@ -33,6 +34,7 @@ public class DAOGetLorannPosition extends DAOEntity{
 			e.printStackTrace();
 		}
 	}
+	
 
 	@Override
 	public boolean create(Entity entity) {

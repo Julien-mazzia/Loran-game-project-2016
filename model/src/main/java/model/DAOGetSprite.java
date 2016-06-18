@@ -12,6 +12,7 @@ public class DAOGetSprite extends DAOEntity{
 	}
 	
 	public Maps getSprite(int x, int y, String type) {
+		
 		String Element;
 		char ChElement = 0;
 		
@@ -31,7 +32,6 @@ public class DAOGetSprite extends DAOEntity{
 				}else{
 					ChElement = '-';
 				}
-				
 			}
 			GetSprite sprite = new GetSprite(ChElement, x, y, type);
 			return null;
