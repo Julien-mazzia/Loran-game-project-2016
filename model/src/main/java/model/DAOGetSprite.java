@@ -33,7 +33,7 @@ public class DAOGetSprite extends DAOEntity{
 				}
 				
 			}
-			GetSprite sprite = new GetSprite(ChElement, x, y, Type);
+			GetSprite sprite = new GetSprite(ChElement, x, y, type);
 			return null;
 		} catch (final SQLException e) {
 			e.printStackTrace();
