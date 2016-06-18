@@ -4,7 +4,7 @@ public class ChangeDoor implements IAction {
 
 	// This method change the Mortal door to the ending door
 	public ChangeDoor() {
-		// TODO Auto-generated constructor stub
+		// Update
 	}
 
 	public void Action(String Object, String type) {

@@ -12,7 +12,7 @@ public class Action {
 	
 	private Kill kill;
 	public Action(ObjectComportement comp1, ObjectComportement comp2, ObjectComportement comp3, String type, int x, int y) {
-		if(comp1==ObjectComportement.BLOCKING){
+		if(comp1==ObjectComportement.BLOCKING || comp1==ObjectComportement.POINTS && type=="Monster"){
 			Block block = new Block(type);
 		}
 		if(comp1==ObjectComportement.MORTAL && type!="Monster"){

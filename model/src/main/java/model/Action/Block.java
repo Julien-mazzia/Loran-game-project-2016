@@ -7,7 +7,11 @@ public class Block implements IAction {
 	 * model/src/main/java/model.hero/spell
 	 */
 	public Block(String type) {
-		// TODO Auto-generated constructor stub
+		//Nothing
+		/*if(type=="Spell"){
+			Spell spell = new Spell();
+			spell.InvertSpell();
+		}*/
 	}
 
 	public void Action(String Object, String type) {
