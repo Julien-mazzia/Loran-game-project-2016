@@ -11,7 +11,7 @@ import model.object.VerticalBone;
 
 public class GetSprite {
 
-	public GetSprite(char element, int x, int y) {
+	public GetSprite(char element, int x, int y, String type) {
 		switch (element){
 			case 'l':
 
@@ -20,30 +20,30 @@ public class GetSprite {
 
 				break;
 			case 'e':
-				EnergeticBubble Bubble = new EnergeticBubble(x, y, "Lorann");
+				EnergeticBubble Bubble = new EnergeticBubble(x, y, type);
 				break;
 			case 'p':
-				Purse purse = new Purse(x, y, "Lorann");
+				Purse purse = new Purse(x, y, type);
 				break;
 			case 'E':
-				EndingDoor door = new EndingDoor(x, y, "Lorann");
+				EndingDoor door = new EndingDoor(x, y, type);
 				break;
 			case 's':
-				SerpentDoor serpDoor = new SerpentDoor(x, y, "Lorann");
+				SerpentDoor serpDoor = new SerpentDoor(x, y, type);
 				break;
 			case 'b':
-				HorizontalBone hBone = new HorizontalBone(x, y, "Lorann");
+				HorizontalBone hBone = new HorizontalBone(x, y, type);
 				break;
 			case 'B':
-				VerticalBone vBone = new VerticalBone(x, y, "Lorann");
+				VerticalBone vBone = new VerticalBone(x, y, type);
 				break;
 			case 'k':
-				Kneecap knee = new Kneecap(x, y, "Lorann");
+				Kneecap knee = new Kneecap(x, y, type);
 				break;
 			case 'f':
 				break;
 			default :
-				Movement move = new Movement(x, y, "l");
+				Movement move = new Movement(x, y, type);
 				break;
 		}
 	}

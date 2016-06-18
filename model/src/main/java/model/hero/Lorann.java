@@ -1,5 +1,6 @@
 package model.hero;
 
+import model.Monster.Monster1;
 
 public class Lorann{
 	int x;
@@ -9,7 +10,7 @@ public class Lorann{
 	public Lorann(int x, int y) {
 		this.x = x;
 		this.y = y;
-		//Monster monster = new Monster(5, 10);
+		Monster1 monster = new Monster1(5, 10);
 		Move move = new Move(4, "Lorann", x, y);
 	}
 	

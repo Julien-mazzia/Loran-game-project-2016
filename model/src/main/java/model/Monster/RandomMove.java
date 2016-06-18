@@ -10,21 +10,21 @@ import model.Mobile.Up;
 public class RandomMove implements IMonster {
 
 	// This method will make a random move of the monster
-	public RandomMove(int x, int y) {
-		//Random random = new Random();
-		int choice = /*0+random.nextInt()*/0;
+	public RandomMove(int x, int y, String type) {
+		Random r = new Random();
+		int choice = 1+r.nextInt(5-1);
 		switch(choice){
-			case 0 :
-				Up up = new Up(x,y,"monster");
-				break;
 			case 1 :
-				Down down = new Down(x,y,"monster");
+				Up up = new Up(x,y,type);
 				break;
 			case 2 :
-				Left left = new Left(x,y,"monster");
+				Down down = new Down(x,y,type);
 				break;
 			case 3 :
-				Right right = new Right(x,y,"monster");
+				Left left = new Left(x,y,type);
+				break;
+			case 4 :
+				Right right = new Right(x,y,type);
 				break;
 		}
 	}

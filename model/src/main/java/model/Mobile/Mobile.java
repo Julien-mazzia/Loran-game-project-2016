@@ -14,7 +14,7 @@ public class Mobile {
 		this.x=x;
 		this.y=y;
 		Model model = new Model();
-		model.loadSprite(x, y);
+		model.loadSprite(x, y, type);
 	}
 	public int getX() {
 		return x;

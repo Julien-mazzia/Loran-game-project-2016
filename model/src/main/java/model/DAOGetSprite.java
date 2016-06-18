@@ -11,7 +11,7 @@ public class DAOGetSprite extends DAOEntity{
 		super(connection);
 	}
 	
-	public Maps getSprite(int x, int y) {
+	public Maps getSprite(int x, int y, String type) {
 		String Element;
 		char ChElement = 0;
 		
@@ -33,7 +33,7 @@ public class DAOGetSprite extends DAOEntity{
 				}
 				
 			}
-			GetSprite sprite = new GetSprite(ChElement, x, y);
+			GetSprite sprite = new GetSprite(ChElement, x, y, Type);
 			return null;
 		} catch (final SQLException e) {
 			e.printStackTrace();

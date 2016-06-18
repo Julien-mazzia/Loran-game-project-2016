@@ -64,10 +64,10 @@ public class Model extends Observable implements IModel {
 		
 	}
 	
-	public void loadSprite(int x, int y){
+	public void loadSprite(int x, int y, String type){
 		try{
 			final DAOGetSprite daoSprite = new DAOGetSprite(DBConnection.getInstance().getConnection());
-			daoSprite.getSprite(x, y);
+			daoSprite.getSprite(x, y, type);
 			
 		} catch (final SQLException e) {
 			e.printStackTrace();

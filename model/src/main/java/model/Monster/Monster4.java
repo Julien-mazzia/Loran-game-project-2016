@@ -1,15 +1,15 @@
 package model.Monster;
 
-public class Monster {
+public class Monster4 {
 	int x;
 	int y;
 
 	// Monster method get x and y position of Monster
-	public Monster(int x, int y) {
+	public Monster4(int x, int y) {
 		this.x = x;
 		this.y = y;
 		//if(xLorann>4 || yLorann>4){
-		RandomMove random = new RandomMove(x,y);
+		RandomMove random = new RandomMove(x,y, "monster4");
 		/* }else{
 		 * Chase chase = new Chase(xLorann, YLorann)
 		 * 
