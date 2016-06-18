@@ -55,8 +55,8 @@ public Maps updateSprite(int x, int y, String element, String sentence) {
 		final String sql = "{call updateSprite(?,?,?)}";
 		final CallableStatement call = this.getConnection().prepareCall(sql);
 		final DAOGetPosition dao = new DAOGetPosition(DBConnection.getInstance().getConnection());
-		if(sentence=="no replace"){
-		dao.getPosition(element, "no replace");
+		if(sentence=="no recover"){
+		dao.getPosition(element, "no recover");
 		}
 		call.setInt(1, x);
 		call.setInt(2, y);

@@ -51,7 +51,9 @@ public class DAOGetPosition extends DAOEntity{
 				x = resultSet.getInt("x");
 				y = resultSet.getInt("y");
 				final DAOUpdate dao = new DAOUpdate(DBConnection.getInstance().getConnection());
-				dao.updateSprite(x, y, element, "replace");
+				if(element=="s"){
+				dao.updateSprite(x, y, "E", "recover");
+				}
 			}
 			
 		} catch (final SQLException e) {
