@@ -5,48 +5,33 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.hero.Lorann;
-
-public class DAOUpdate extends DAOEntity{
-
-	public DAOUpdate(final Connection connection) throws SQLException {
+public class DAOGetLorannPosition extends DAOEntity{
+	
+	public DAOGetLorannPosition(final Connection connection) throws SQLException{
 		super(connection);
 	}
-	
-	public Maps updateSprite(int x, int y, String element) {
+
+	public void getLorannPosition() {
+		int x;
+		int y;
 		
 		try {
-			final String sql = "{call updateSprite(?,?,?)}";
+			final String sql = "{call getLorann()}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
-			call.setInt(1, x);
-			call.setInt(2, y);
-			call.setString(3, element);
+			//ResultSet resultSet = call.getResultSet();
 			call.execute();
+			ResultSet resultSet = call.getResultSet();
 			
-			final DAOGetLorannPosition dao = new DAOGetLorannPosition(DBConnection.getInstance().getConnection());
-			dao.getLorannPosition();
+			if(resultSet.first()){
+				x = resultSet.getInt("x");
+				y = resultSet.getInt("y");
+				final DAOUpdate dao = new DAOUpdate(DBConnection.getInstance().getConnection());
+				dao.updateSprite(x, y);
+			}
+			
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
-		
-		return null;
-	}
-	
-public Maps updateSprite(int x, int y) {
-		
-		try {
-			final String sql = "{call updateSprite(?,?,?)}";
-			final CallableStatement call = this.getConnection().prepareCall(sql);
-			call.setInt(1, x);
-			call.setInt(2, y);
-			call.setString(3, "");
-			call.execute();
-			return null;
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return null;
 	}
 
 	@Override
