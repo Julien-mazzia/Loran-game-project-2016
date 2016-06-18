@@ -55,17 +55,33 @@ public class Model extends Observable implements IModel {
 			final DAOMaps daomaps = new DAOMaps(DBConnection.getInstance().getConnection());
 			daomaps.find1();
 			
-			final DAOGetSprite daoSprite = new DAOGetSprite(DBConnection.getInstance().getConnection());
-			daoSprite.getSprite(1, 0);
 			
-			final DAOUpdate daoUpdate = new DAOUpdate(DBConnection.getInstance().getConnection());
-			daoUpdate.updateSprite(1, 4, "h");
 			
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
 		
 		
+	}
+	
+	public void loadSprite(int x, int y){
+		try{
+			final DAOGetSprite daoSprite = new DAOGetSprite(DBConnection.getInstance().getConnection());
+			daoSprite.getSprite(x, y);
+			
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void updateSprite(int x, int y, String type){
+		try{
+			final DAOUpdate daoUpdate = new DAOUpdate(DBConnection.getInstance().getConnection());
+			daoUpdate.updateSprite(x, y, type);
+			
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/*

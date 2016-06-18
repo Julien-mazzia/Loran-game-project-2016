@@ -1,5 +1,6 @@
 package model;
 
+import model.Action.Movement;
 import model.object.EndingDoor;
 import model.object.EnergeticBubble;
 import model.object.HorizontalBone;
@@ -40,6 +41,9 @@ public class GetSprite {
 				Kneecap knee = new Kneecap(x, y, "Lorann");
 				break;
 			case 'f':
+				break;
+			default :
+				Movement move = new Movement(x, y, "l");
 				break;
 		}
 	}

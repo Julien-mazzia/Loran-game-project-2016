@@ -29,7 +29,7 @@ public class Action {
 			System.out.println("Hola");
 		}
 		if(comp2==ObjectComportement.PENETRABLE && comp1!=ObjectComportement.MORTAL){
-			Movement move = new Movement(type, x, y);
+			Movement move = new Movement(x, y, type);
 			System.out.println("Hi");
 		}
 	}
