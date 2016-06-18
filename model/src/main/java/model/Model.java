@@ -83,6 +83,18 @@ public class Model extends Observable implements IModel {
 			e.printStackTrace();
 		}
 	}
+	
+	public void loadNewMap(){
+		try{
+		final DAONewMap daomaps = new DAONewMap(DBConnection.getInstance().getConnection());
+		daomaps.find1();
+		
+		
+		
+	} catch (final SQLException e) {
+		e.printStackTrace();
+	}
+	}
 
 	/*
 	 * (non-Javadoc)

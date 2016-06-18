@@ -5,10 +5,11 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DAOMaps extends DAOEntity{
-	private Maps maps;
+public class DAONewMap extends DAOEntity{
+
+private Maps maps;
 	
-	public DAOMaps(final Connection connection) throws SQLException {
+	public DAONewMap(final Connection connection) throws SQLException {
 		super(connection);
 	}
 	
@@ -20,10 +21,7 @@ public class DAOMaps extends DAOEntity{
 		char ChElement = 0;
 		
 		try {
-			final String sql1 = "{call fillTable()}";
-			final CallableStatement call1 = this.getConnection().prepareCall(sql1);
-			call1.execute();
-			final String sql = "{call getMap()}";
+			final String sql = "{call getNewMap()}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			call.execute();
 			ResultSet resultSet = call.getResultSet();
@@ -39,6 +37,7 @@ public class DAOMaps extends DAOEntity{
 				}
 				Elements[x][y] = ChElement;
 			}
+			maps = new Maps(Elements);
 			return maps;
 		} catch (final SQLException e) {
 			e.printStackTrace();
