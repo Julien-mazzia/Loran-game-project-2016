@@ -16,7 +16,6 @@ public class DAOUpdate extends DAOEntity{
 	public Maps updateSprite(int x, int y, String element) {
 		
 		try {
-			System.out.println(element);
 			final String sql = "{call updateSprite(?,?,?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			call.setInt(1, x);
@@ -49,6 +48,27 @@ public Maps updateSprite(int x, int y) {
 		
 		return null;
 	}
+
+public Maps updateSprite(int x, int y, String element, String sentence) {
+	
+	try {
+		final String sql = "{call updateSprite(?,?,?)}";
+		final CallableStatement call = this.getConnection().prepareCall(sql);
+		final DAOGetPosition dao = new DAOGetPosition(DBConnection.getInstance().getConnection());
+		if(sentence=="no replace"){
+		dao.getPosition(element, "no replace");
+		}
+		call.setInt(1, x);
+		call.setInt(2, y);
+		call.setString(3, element);
+		call.execute();
+		return null;
+	} catch (final SQLException e) {
+		e.printStackTrace();
+	}
+	
+	return null;
+}
 
 	@Override
 	public boolean create(Entity entity) {

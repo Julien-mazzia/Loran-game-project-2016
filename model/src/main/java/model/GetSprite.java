@@ -1,5 +1,6 @@
 package model;
 
+import model.Action.Action;
 import model.Action.Movement;
 import model.object.EndingDoor;
 import model.object.EnergeticBubble;
@@ -11,22 +12,24 @@ import model.object.VerticalBone;
 
 public class GetSprite {
 
+	private Action action;
+	
 	public GetSprite(char element, int x, int y, String type) {
 		switch (element){
 			case 'l':
-
+				action = new Action("Lorann", type);
 				break;
 			case 'g':
-
+				action = new Action("monster1", type);
 				break;
 			case 'h':
-
+				action = new Action("monster2", type);
 				break;
 			case 'z':
-
+				action = new Action("monster3", type);
 				break;
 			case 'r':
-
+				action = new Action("monster4", type);
 				break;
 			case 'e':
 				EnergeticBubble Bubble = new EnergeticBubble(x, y, type);
@@ -50,6 +53,7 @@ public class GetSprite {
 				Kneecap knee = new Kneecap(x, y, type);
 				break;
 			case 'f':
+				action = new Action("Spell", type);
 				break;
 			default :
 				Movement move = new Movement(x, y, type);

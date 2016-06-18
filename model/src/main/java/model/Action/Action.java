@@ -14,36 +14,31 @@ public class Action {
 	public Action(ObjectComportement comp1, ObjectComportement comp2, ObjectComportement comp3, String type, int x, int y) {
 		if(comp1==ObjectComportement.BLOCKING || comp1==ObjectComportement.POINTS && type=="Monster"){
 			Block block = new Block(type);
-			System.out.println("Bonjour");
 		}
 		if(comp1==ObjectComportement.MORTAL && type!="Monster"){
 			this.kill = new Kill(type);
-			System.out.println("Salut");
 		}
 		if(comp1==ObjectComportement.POINTS){
 			Points points = new Points(type);
-			System.out.println("Hello");
 		}
 		if(comp1==ObjectComportement.LINKED && comp2==ObjectComportement.PENETRABLE){
 			ChangeDoor door = new ChangeDoor();
-			System.out.println("Hola");
 		}
 		if(comp2==ObjectComportement.PENETRABLE && comp1!=ObjectComportement.MORTAL){
 			Movement move = new Movement(x, y, type);
-			System.out.println("Hi");
 		}
 	}
 	
 	public Action(String NextType, String type){
-		if(NextType == "Monster" && type == "Lorann"){
+		if((NextType == "monster1" || NextType == "monster2" || NextType == "monster3" || NextType == "monster4") && type == "Lorann"){
 			this.kill = new Kill(type);
-		}else if(NextType == "Lorann" && type == "Monster"){
+		}else if(NextType == "Lorann" && (NextType == "monster1" || NextType == "monster2" || NextType == "monster3" || NextType == "monster4")){
 			this.kill = new Kill(NextType);
 		}
 		
-		if(NextType == "Monster" && type == "Spell"){
+		if((NextType == "monster1" || NextType == "monster2" || NextType == "monster3" || NextType == "monster4") && type == "Spell"){
 			this.kill = new Kill(type);
-		}else if(NextType == "Spell" && type == "Monster"){
+		}else if(NextType == "Spell" && (NextType == "monster1" || NextType == "monster2" || NextType == "monster3" || NextType == "monster4")){
 			this.kill = new Kill(NextType);
 		}
 		

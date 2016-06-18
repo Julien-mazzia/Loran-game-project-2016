@@ -35,6 +35,30 @@ public class DAOGetPosition extends DAOEntity{
 		}
 	}
 	
+	public void getPosition(String element, String sentence) {
+		int x;
+		int y;
+		
+		try {
+			final String sql = "{call getPosition(?)}";
+			final CallableStatement call = this.getConnection().prepareCall(sql);
+			//ResultSet resultSet = call.getResultSet();
+			call.setString(1, element);
+			call.execute();
+			ResultSet resultSet = call.getResultSet();
+			
+			if(resultSet.first()){
+				x = resultSet.getInt("x");
+				y = resultSet.getInt("y");
+				final DAOUpdate dao = new DAOUpdate(DBConnection.getInstance().getConnection());
+				dao.updateSprite(x, y, element, "replace");
+			}
+			
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 
 	@Override
 	public boolean create(Entity entity) {
