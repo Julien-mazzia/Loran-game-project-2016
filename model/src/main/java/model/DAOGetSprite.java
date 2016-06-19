@@ -5,31 +5,37 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DAOGetSprite extends DAOEntity{
+public class DAOGetSprite extends DAOEntity {
 
 	public DAOGetSprite(final Connection connection) throws SQLException {
 		super(connection);
 	}
-	
+
+	/*
+	 * This method get the sprite in the x and y knew location
+	 */
+
 	public Maps getSprite(int x, int y, String type) {
-		
+
 		String Element;
 		char ChElement = 0;
-		
+
 		try {
 			final String sql = "{call getSprite(?,?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			call.setInt(1, x);
 			call.setInt(2, y);
-			//ResultSet resultSet = call.getResultSet();
 			call.execute();
 			ResultSet resultSet = call.getResultSet();
-			
-			if(resultSet.first()){
+
+			if (resultSet.first()) {
+				// Element is the result of the getSprite procedure
 				Element = resultSet.getString("Object");
-				if(Element.length()>0){
+				// if the element is consider as a char we can change him
+				if (Element.length() > 0) {
 					ChElement = Element.charAt(0);
-				}else{
+					// if the element equal "null", he will be changed in -
+				} else {
 					ChElement = '-';
 				}
 			}
@@ -38,7 +44,7 @@ public class DAOGetSprite extends DAOEntity{
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return null;
 	}
 

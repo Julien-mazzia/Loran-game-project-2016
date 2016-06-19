@@ -5,51 +5,63 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DAOMaps extends DAOEntity{
+public class DAOMaps extends DAOEntity {
 	private Maps maps;
-	
+
 	public DAOMaps(final Connection connection) throws SQLException {
 		super(connection);
 	}
-	
+
+	// This method get the initial map
+
 	public Maps find1() {
 		int x = 0;
 		int y = 0;
-		char Elements[][]= new char[15][20];
+		char Elements[][] = new char[15][20];
 		String Element;
 		char ChElement = 0;
-		
+
 		try {
+			/*
+			 * fillTable procedure fill the second table mapChanges with all the
+			 * sprite of the current played map
+			 */
 			final String sql1 = "{call fillTable()}";
 			final CallableStatement call1 = this.getConnection().prepareCall(sql1);
 			call1.execute();
+
+			/*
+			 * getMap procedure get the initial map
+			 * 
+			 */
+
 			final String sql = "{call getMap()}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			call.execute();
 			ResultSet resultSet = call.getResultSet();
-			
-			while(resultSet.next()){
+
+			while (resultSet.next()) {
 				x = resultSet.getInt("x");
 				y = resultSet.getInt("y");
 				Element = resultSet.getString("Object");
-				if(Element.length()>0){
+
+				// Here, the element is change to String to char
+				if (Element.length() > 0) {
 					ChElement = Element.charAt(0);
-				}else{
+				} else {
 					ChElement = '-';
 				}
+
+				// Then we fill the table Elements
 				Elements[x][y] = ChElement;
 			}
 			return maps;
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return null;
 	}
-	
-	
-
-	
 
 	@Override
 	public boolean create(Entity entity) {

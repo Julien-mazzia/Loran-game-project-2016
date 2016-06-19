@@ -18,13 +18,13 @@ public class Action {
 		if(comp1==ObjectComportement.MORTAL && type!="Monster"){
 			this.kill = new Kill(type);
 		}
-		if(comp1==ObjectComportement.POINTS){
-			Points points = new Points(type);
+		if(comp1==ObjectComportement.POINTS && type =="Lorann"){
+			Points points = new Points();
 		}
 		if(comp1==ObjectComportement.LINKED && comp2==ObjectComportement.PENETRABLE){
 			ChangeDoor door = new ChangeDoor();
 		}
-		if(comp2==ObjectComportement.PENETRABLE && comp1!=ObjectComportement.MORTAL){
+		if(comp2==ObjectComportement.PENETRABLE && comp1!=ObjectComportement.MORTAL && type =="Lorann"){
 			Movement move = new Movement(x, y, type);
 		}
 	}

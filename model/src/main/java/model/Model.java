@@ -15,8 +15,7 @@ public class Model extends Observable implements IModel {
 
 	/** The message. */
 	private String message;
-	
-	
+
 	/**
 	 * Instantiates a new model.
 	 */
@@ -37,7 +36,7 @@ public class Model extends Observable implements IModel {
 	 * Sets the message.
 	 *
 	 * @param message
-	 *          the new message
+	 *            the new message
 	 */
 	private void setMessage(final String message) {
 		this.message = message;
@@ -45,66 +44,67 @@ public class Model extends Observable implements IModel {
 		this.notifyObservers();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getMessage(java.lang.String)
-	 */
+	// Must change this method name
+
 	public void loadMessage(final String key) {
 		try {
 			final DAOMaps daomaps = new DAOMaps(DBConnection.getInstance().getConnection());
 			daomaps.find1();
-			
-			
-			
+
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
-		
-		
+
 	}
-	
-	public void loadSprite(int x, int y, String type){
-		try{
+
+	// loadSprite will send to getSprite all the data it need to have
+
+	public void loadSprite(int x, int y, String type) {
+		try {
 			final DAOGetSprite daoSprite = new DAOGetSprite(DBConnection.getInstance().getConnection());
 			daoSprite.getSprite(x, y, type);
-			
+
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	
-	public void updateSprite(int x, int y, String type){
-		try{
+
+	// updateSprite will send to the correct updateSprite all the data it need
+	// to have
+
+	public void updateSprite(int x, int y, String type) {
+		try {
 			final DAOUpdate daoUpdate = new DAOUpdate(DBConnection.getInstance().getConnection());
 			daoUpdate.updateSprite(x, y, type);
-			
+
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	
-	public void updateSprite(int x, int y, String type, String sentence){
-		try{
+
+	// updateSprite will send to the correct updateSprite all the data it need
+	// to have
+
+	public void updateSprite(int x, int y, String type, String sentence) {
+		try {
 			final DAOUpdate daoUpdate = new DAOUpdate(DBConnection.getInstance().getConnection());
 			daoUpdate.updateSprite(x, y, type);
-			
+
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	public void loadNewMap(){
-		try{
-		final DAONewMap daomaps = new DAONewMap(DBConnection.getInstance().getConnection());
-		daomaps.find1();
-		
-		
-		
-	} catch (final SQLException e) {
-		e.printStackTrace();
-	}
+
+	// loadNewMap recover the mapChanges in the database
+
+	public void loadNewMap() {
+		try {
+			final DAONewMap daomaps = new DAONewMap(DBConnection.getInstance().getConnection());
+			daomaps.find1();
+
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/*

@@ -5,50 +5,55 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DAONewMap extends DAOEntity{
+public class DAONewMap extends DAOEntity {
 
-private Maps maps;
-	
+	private Maps maps;
+
 	public DAONewMap(final Connection connection) throws SQLException {
 		super(connection);
 	}
-	
+
+	// This method get the new changed map
+
 	public Maps find1() {
 		int x = 0;
 		int y = 0;
-		char Elements[][]= new char[15][20];
+		char Elements[][] = new char[15][20];
 		String Element;
 		char ChElement = 0;
-		
+
 		try {
+
+			// This procedure will get the new map
 			final String sql = "{call getNewMap()}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			call.execute();
 			ResultSet resultSet = call.getResultSet();
-			
-			while(resultSet.next()){
+
+			while (resultSet.next()) {
 				x = resultSet.getInt("x");
 				y = resultSet.getInt("y");
 				Element = resultSet.getString("Object");
-				if(Element.length()>0){
+
+				// change the element to String to char
+				if (Element.length() > 0) {
 					ChElement = Element.charAt(0);
-				}else{
+				} else {
 					ChElement = '-';
 				}
+
+				// Then fill the table Elements
 				Elements[x][y] = ChElement;
 			}
+			// Send the result to Maps
 			maps = new Maps(Elements);
 			return maps;
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return null;
 	}
-	
-	
-
-	
 
 	@Override
 	public boolean create(Entity entity) {

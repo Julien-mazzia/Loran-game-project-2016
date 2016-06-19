@@ -7,14 +7,19 @@ import java.sql.SQLException;
 
 import model.hero.Lorann;
 
-public class DAOUpdate extends DAOEntity{
+public class DAOUpdate extends DAOEntity {
 
 	public DAOUpdate(final Connection connection) throws SQLException {
 		super(connection);
 	}
-	
+
+	/*
+	 * This method update the location of the element because he can move to his
+	 * next location. So we update the next sprite with the element.
+	 */
+
 	public Maps updateSprite(int x, int y, String element) {
-		
+
 		try {
 			final String sql = "{call updateSprite(?,?,?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
@@ -22,18 +27,23 @@ public class DAOUpdate extends DAOEntity{
 			call.setInt(2, y);
 			call.setString(3, element);
 			call.execute();
-			
+
 			final DAOGetPosition dao = new DAOGetPosition(DBConnection.getInstance().getConnection());
 			dao.getPosition(element);
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return null;
 	}
-	
-public Maps updateSprite(int x, int y) {
-		
+
+	/*
+	 * This method update the older location of the element because he can move
+	 * to his next location. So we update the previous sprite with nothing.
+	 */
+
+	public Maps updateSprite(int x, int y) {
+
 		try {
 			final String sql = "{call updateSprite(?,?,?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
@@ -45,30 +55,36 @@ public Maps updateSprite(int x, int y) {
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return null;
 	}
 
-public Maps updateSprite(int x, int y, String element, String sentence) {
-	
-	try {
-		final String sql = "{call updateSprite(?,?,?)}";
-		final CallableStatement call = this.getConnection().prepareCall(sql);
-		final DAOGetPosition dao = new DAOGetPosition(DBConnection.getInstance().getConnection());
-		if(sentence=="no recover"){
-		dao.getPosition(element, "no recover");
+	/*
+	 * This method update the location of a motionless element because he can't
+	 * move. So we update the sprite with the new element if he change of
+	 * statement, or by nothing if he disappear
+	 */
+
+	public Maps updateSprite(int x, int y, String element, String sentence) {
+
+		try {
+			final String sql = "{call updateSprite(?,?,?)}";
+			final CallableStatement call = this.getConnection().prepareCall(sql);
+			final DAOGetPosition dao = new DAOGetPosition(DBConnection.getInstance().getConnection());
+			if (sentence == "no recover") {
+				dao.getPosition(element, "no recover");
+			}
+			call.setInt(1, x);
+			call.setInt(2, y);
+			call.setString(3, element);
+			call.execute();
+			return null;
+		} catch (final SQLException e) {
+			e.printStackTrace();
 		}
-		call.setInt(1, x);
-		call.setInt(2, y);
-		call.setString(3, element);
-		call.execute();
+
 		return null;
-	} catch (final SQLException e) {
-		e.printStackTrace();
 	}
-	
-	return null;
-}
 
 	@Override
 	public boolean create(Entity entity) {
