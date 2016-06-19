@@ -5,16 +5,16 @@ public class Monster1 {
 	int y;
 
 	// Monster method get x and y position of Monster
-	public Monster1(int x, int y) {
+	public Monster1(int x, int y, int xL, int yL) {
 		this.x = x;
 		this.y = y;
-		//if(xLorann>4 || yLorann>4){
+		if(xL-x>=4 || xL-x<=-4 || yL-y>=4 || yL-y<=4){
 		RandomMove random = new RandomMove(x,y, "monster1");
-		/* }else{
-		 * Chase chase = new Chase(xLorann, YLorann)
-		 * 
-		 * }
-		 */
+		}else{
+			Chase chase = new Chase(x, y, xL, yL, "monster1");
+		 
+		}
+		 
 	}
 
 	public int getX() {
