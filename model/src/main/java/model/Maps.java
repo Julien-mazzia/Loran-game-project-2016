@@ -9,7 +9,7 @@ import model.hero.Lorann;
 public class Maps {
 
 	// This method recover the location of Lorann and of the monsters
-	public Maps(char[][] Elements) {
+	public Maps(char[][] Elements, int move) {
 		int xL;
 		int yL;
 
@@ -35,7 +35,7 @@ public class Maps {
 				if (Elements[k][l] == 'l') {
 					xL = k;
 					yL = l;
-					Lorann lorann = new Lorann(xL, yL);
+					Lorann lorann = new Lorann(xL, yL, move);
 				}
 				if (Elements[k][l] == 'g') {
 					xG = k;

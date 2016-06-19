@@ -31,5 +31,5 @@ public interface IModel {
 	 */
 	Observable getObservable();
 
-	void loadNewMap();
+	void loadNewMap(int move);
 }

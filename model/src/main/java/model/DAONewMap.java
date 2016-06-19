@@ -15,7 +15,7 @@ public class DAONewMap extends DAOEntity {
 
 	// This method get the new changed map
 
-	public Maps find1() {
+	public Maps find1(int move) {
 		int x = 0;
 		int y = 0;
 		char Elements[][] = new char[15][20];
@@ -46,7 +46,7 @@ public class DAONewMap extends DAOEntity {
 				Elements[x][y] = ChElement;
 			}
 			// Send the result to Maps
-			maps = new Maps(Elements);
+			maps = new Maps(Elements, move);
 			return maps;
 		} catch (final SQLException e) {
 			e.printStackTrace();

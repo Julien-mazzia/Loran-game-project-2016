@@ -67,17 +67,17 @@ public class Controller implements IController {
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
-			case English:
-				this.model.loadNewMap();
+			case UP:
+				this.model.loadNewMap(1);
 				break;
-			case Francais:
-				this.model.loadNewMap();
+			case LEFT:
+				this.model.loadNewMap(3);
 				break;
-			case Deutsch:
-				this.model.loadNewMap();
+			case DOWN:
+				this.model.loadNewMap(2);
 				break;
-			case Indonesia:
-				this.model.loadNewMap();
+			case RIGHT:
+				this.model.loadNewMap(4);
 				break;
 
 			default:

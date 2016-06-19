@@ -97,10 +97,10 @@ public class Model extends Observable implements IModel {
 
 	// loadNewMap recover the mapChanges in the database
 
-	public void loadNewMap() {
+	public void loadNewMap(int move) {
 		try {
 			final DAONewMap daomaps = new DAONewMap(DBConnection.getInstance().getConnection());
-			daomaps.find1();
+			daomaps.find1(move);
 
 		} catch (final SQLException e) {
 			e.printStackTrace();
