@@ -32,4 +32,5 @@ public interface IModel {
 	Observable getObservable();
 	char[][] loadNewMap(int move);
 	char[][] loadNewMap();
+	public void newSpell();
 }

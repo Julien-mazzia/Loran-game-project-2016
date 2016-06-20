@@ -71,7 +71,31 @@ public class DAOGetPosition extends DAOEntity {
 			e.printStackTrace();
 		}
 	}
+	
+	public int[] getPositionElement(String element) {
+		int tab[] = new int[2];
+		int x;
+		int y;
 
+		try {
+			final String sql = "{call getPosition(?)}";
+			final CallableStatement call = this.getConnection().prepareCall(sql);
+			call.setString(1, element);
+			call.execute();
+			ResultSet resultSet = call.getResultSet();
+
+			if (resultSet.first()) {
+				x = resultSet.getInt("x");
+				y = resultSet.getInt("y");
+				tab[0]=x;
+				tab[1]=y;
+			}
+			return tab;
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	@Override
 	public boolean create(Entity entity) {
 		// TODO Auto-generated method stub

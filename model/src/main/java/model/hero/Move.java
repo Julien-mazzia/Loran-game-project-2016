@@ -1,5 +1,9 @@
 package model.hero;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import model.Mobile.Down;
 import model.Mobile.Left;
 import model.Mobile.Right;
@@ -18,19 +22,62 @@ public class Move {
 	public int y;
 
 	public Move(int move, String type , int x, int y) {
+		File f;
 		switch(move){
 			case 1:
-				
+				f = new File ("OldMove");
+				try
+				{
+				    FileWriter fw = new FileWriter (f);
+				        fw.write (String.valueOf (move));
+				    fw.close();
+				}
+				catch (IOException exception)
+				{
+				    System.out.println ("Erreur lors de la lecture : " + exception.getMessage());
+				}
 				left = new Left(x, y-1, type);
 				break;
 			case 2:
+				f = new File ("OldMove");
+				try
+				{
+				    FileWriter fw = new FileWriter (f);
+				        fw.write (String.valueOf (move));
+				    fw.close();
+				}
+				catch (IOException exception)
+				{
+				    System.out.println ("Erreur lors de la lecture : " + exception.getMessage());
+				}
 				down = new Down(x, y+1, type);
 				break;
 			case 3:
+				f = new File ("OldMove");
+				try
+				{
+				    FileWriter fw = new FileWriter (f);
+				        fw.write (String.valueOf (move));
+				    fw.close();
+				}
+				catch (IOException exception)
+				{
+				    System.out.println ("Erreur lors de la lecture : " + exception.getMessage());
+				}
 				up = new Up(x-1, y, type);
 				break;
 			case 4:
-				
+				f = new File ("OldMove");
+				try
+				{
+				    FileWriter fw = new FileWriter (f);
+				        fw.write (String.valueOf (move));
+				    fw.close();
+				}
+				catch (IOException exception)
+				{
+				    System.out.println ("Erreur lors de la lecture : " + exception.getMessage());
+				}
 				right = new Right(x+1, y, type); //R: y+1
 				break;
 		}

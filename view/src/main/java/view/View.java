@@ -1,9 +1,14 @@
 package view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.Observable;
 
 import javax.swing.SwingUtilities;
+import javax.swing.Timer;
+
+import org.junit.experimental.theories.Theories;
 
 import contract.ControllerOrder;
 import contract.IController;
@@ -15,13 +20,12 @@ import contract.IView;
  *
  * @author Jean-Aymeric Diet
  */
-public class View implements IView, Runnable {
-
+public class View implements IView, Runnable, ActionListener {
+	
 	/** The frame. */
 	private final ViewFrame viewFrame;
 	
 	private char Elements[][];
-
 	/**
 	 * Instantiates a new view.
 	 *
@@ -43,7 +47,7 @@ public class View implements IView, Runnable {
 	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
 		switch (keyCode) {
 			case KeyEvent.VK_Z:
-				return ControllerOrder.UP;
+				return ControllerOrder.UP;			
 			case KeyEvent.VK_Q:
 				return ControllerOrder.LEFT;
 			case KeyEvent.VK_S:
@@ -98,6 +102,14 @@ public class View implements IView, Runnable {
 	public void setElements(char[][] elements) {
 		this.Elements=elements;
 		viewFrame.setElements(Elements);
+		
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void timer(){
 		
 	}
 }

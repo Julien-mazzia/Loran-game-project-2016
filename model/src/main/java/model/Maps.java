@@ -5,6 +5,7 @@ import model.Monster.Monster2;
 import model.Monster.Monster3;
 import model.Monster.Monster4;
 import model.hero.Lorann;
+import model.hero.Spell;
 
 public class Maps {
 	int xL;
@@ -21,6 +22,9 @@ public class Maps {
 
 	int xR;
 	int yR;
+	
+	int xS;
+	int yS;
 	// This method recover the location of Lorann and of the monsters
 	public Maps(char[][] Elements, int move) {
 		
@@ -58,6 +62,11 @@ public class Maps {
 					xR = k;
 					yR = l;
 					Monster4 monster4 = new Monster4(xR, yR);
+				}
+				if(Elements[k][l] == 'S'){
+					xS = k;
+					yS = l;
+					Spell spell = new Spell(xS, yS);
 				}
 				
 				

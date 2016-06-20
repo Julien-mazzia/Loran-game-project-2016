@@ -12,5 +12,8 @@ public class Lorann{
 		this.y = y;
 		Move move = new Move(movement, "Lorann", x, y);
 	}
+	public void Spell(){
+		
+	}
 	
 }

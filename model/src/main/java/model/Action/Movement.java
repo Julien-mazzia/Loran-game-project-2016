@@ -21,7 +21,7 @@ public class Movement implements IAction{
 			model.updateSprite(x, y, "r");
 		}
 		else if(type=="Spell"){
-			model.updateSprite(x, y, "s");
+			model.updateSprite(x, y, "S");
 		}
 		
 		

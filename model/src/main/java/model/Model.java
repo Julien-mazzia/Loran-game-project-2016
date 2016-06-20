@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import contract.IController;
 import contract.IModel;
 import model.hero.Lorann;
+import model.hero.Spell;
 
 /**
  * The Class Model.
@@ -77,7 +78,19 @@ public class Model extends Observable implements IModel {
 			e.printStackTrace();
 		}
 	}
-
+	
+	public int [] LoacteElement(String type) {
+		int tab[] = null;
+		try {
+			final DAOGetPosition daoSprite = new DAOGetPosition(DBConnection.getInstance().getConnection());
+			tab = daoSprite.getPositionElement(type);
+			return tab;
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
+		return tab;
+	}
+	
 	// updateSprite will send to the correct updateSprite all the data it need
 	// to have
 
@@ -152,6 +165,9 @@ public class Model extends Observable implements IModel {
 	 */
 	public Observable getObservable() {
 		return this;
+	}
+	public void newSpell(){
+		Spell spell = new Spell();
 	}
 
 }

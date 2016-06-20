@@ -87,7 +87,9 @@ public class Controller implements IController {
 				Elements = this.model.loadNewMap(4);
 				this.view.setElements(Elements);
 				break;
-
+			case SPACE:
+				this.model.newSpell();
+				break;
 			default:
 				break;
 		}
