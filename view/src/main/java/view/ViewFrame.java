@@ -138,6 +138,7 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.setContentPane(new ViewPanel(this));
 		this.setSize(400 /*+ this.getInsets().left + this.getInsets().right*/, 400 /*+ this.getInsets().top + this.getInsets().bottom*/);
 		this.setLocationRelativeTo(null);
+		this.setVisible(true);
 		this.panel = new ViewPanel(this);
 		panel.repaint();
 	}
@@ -148,8 +149,16 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @param message
 	 *          the message
 	 */
-	public void printMessage(final String message) {
-		JOptionPane.showMessageDialog(null, message);
+	public int printMessage(final String message) {
+		String[] tabLevel = {"1","2","3","4"};
+		//JOptionPane.showMessageDialog(null, message);
+		JOptionPane jop = new JOptionPane();
+		int level = jop.showOptionDialog(null, "Choisissez votre niveau :", "Choix du niveau",  
+				JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, 
+				tabLevel, tabLevel[0]);
+		System.out.println(level);
+		return level;
+		
 	}
 
 	/*
