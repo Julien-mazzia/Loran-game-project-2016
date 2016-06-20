@@ -86,6 +86,18 @@ public class DAONewMap extends DAOEntity {
 				Elements[x][y] = ChElement;
 			}
 			// Send the result to Maps
+
+			for (int k = 0; k < 15; k++) {
+				for (int l = 0; l < 20; l++) {
+					System.out.print(Elements[l][k]);
+				}
+				System.out.println("");
+
+			}
+			System.out.println("");
+			System.out.println("");
+			System.out.println("");
+			System.out.println("");
 			return Elements;
 		} catch (final SQLException e) {
 			e.printStackTrace();

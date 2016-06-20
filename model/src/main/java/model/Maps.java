@@ -65,17 +65,6 @@ public class Maps {
 			}
 
 		}
-		for (int k = 0; k < 15; k++) {
-			for (int l = 0; l < 20; l++) {
-				System.out.print(Elements[l][k]);
-			}
-			System.out.println("");
-
-		}
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
 
 	}
 
