@@ -1,9 +1,14 @@
 package view;
 
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 /**
@@ -12,11 +17,15 @@ import javax.swing.JPanel;
  * @author Jean-Aymeric Diet
  */
 class ViewPanel extends JPanel implements Observer {
-
+	
+	BufferedImage image;
 	/** The view frame. */
 	private ViewFrame					viewFrame;
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
+	
+	char Elements[][];
+	char element;
 
 	/**
 	 * Instantiates a new view panel.
@@ -63,8 +72,27 @@ class ViewPanel extends JPanel implements Observer {
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
 	@Override
-	protected void paintComponent(final Graphics graphics) {
-		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-		graphics.drawString(this.getViewFrame().getModel().getMessage(), 10, 20);
+	public void paintComponent(final Graphics graphics) {
+		if(element!=0){
+			System.out.println(element);
+		}
+		try {
+			image = ImageIO.read(this.getClass().getResourceAsStream("Image/bone.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//graphics.drawRect(30, 30, 100, 100);
+		graphics.drawImage(image, 32, 32, null);
+		
 	}
+
+	public void setElements(char[][] elements) {
+		Elements = elements;
+	}
+
+	public char[][] getElements() {
+		return Elements;
+	}
+	
 }

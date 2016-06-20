@@ -25,6 +25,10 @@ class ViewFrame extends JFrame implements KeyListener {
 	private IController				controller;
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -697358409737458175L;
+	
+	private char Elements[][];
+	
+	private ViewPanel panel;
 
 	/**
 	 * Instantiates a new view frame.
@@ -79,6 +83,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	public ViewFrame(final IModel model, final String title, final GraphicsConfiguration gc) {
 		super(title, gc);
 		this.buildViewFrame(model);
+		
 	}
 
 	/**
@@ -131,8 +136,10 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.setResizable(false);
 		this.addKeyListener(this);
 		this.setContentPane(new ViewPanel(this));
-		this.setSize(400 + this.getInsets().left + this.getInsets().right, 60 + this.getInsets().top + this.getInsets().bottom);
+		this.setSize(400 /*+ this.getInsets().left + this.getInsets().right*/, 400 /*+ this.getInsets().top + this.getInsets().bottom*/);
 		this.setLocationRelativeTo(null);
+		this.panel = new ViewPanel(this);
+		panel.repaint();
 	}
 
 	/**
@@ -170,5 +177,25 @@ class ViewFrame extends JFrame implements KeyListener {
 	 */
 	public void keyReleased(final KeyEvent e) {
 
+	}
+
+	public void setElements(char[][] elements) {
+		Elements = elements;
+		this.panel.setElements(elements);
+	}
+
+	public char[][] getElements() {
+		return Elements;
+	}
+	
+	public char[][] loadMap(){
+		Elements = this.controller.loadMap();
+		for(int x=0; x<20; x++){
+			for(int y=0; x<15; y++){
+				System.out.println(Elements);
+			}
+		}
+		return Elements;
+		
 	}
 }

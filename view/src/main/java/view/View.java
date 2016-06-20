@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.event.KeyEvent;
+import java.util.Observable;
 
 import javax.swing.SwingUtilities;
 
@@ -18,6 +19,8 @@ public class View implements IView, Runnable {
 
 	/** The frame. */
 	private final ViewFrame viewFrame;
+	
+	private char Elements[][];
 
 	/**
 	 * Instantiates a new view.
@@ -77,5 +80,16 @@ public class View implements IView, Runnable {
 	 */
 	public void setController(final IController controller) {
 		this.viewFrame.setController(controller);
+	}
+
+	public void update(Observable arg0, Object arg1) {
+		
+		
+	}
+
+	public void setElements(char[][] elements) {
+		this.Elements=elements;
+		viewFrame.setElements(Elements);
+		
 	}
 }

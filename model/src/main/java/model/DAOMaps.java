@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import model.Mobile.Mobile;
+
 public class DAOMaps extends DAOEntity {
 	private Maps maps;
 
@@ -14,10 +16,10 @@ public class DAOMaps extends DAOEntity {
 
 	// This method get the initial map
 
-	public Maps find1() {
+	public char [][] find1() {
 		int x = 0;
 		int y = 0;
-		char Elements[][] = new char[15][20];
+		char Elements[][] = new char[20][15];
 		String Element;
 		char ChElement = 0;
 
@@ -55,7 +57,7 @@ public class DAOMaps extends DAOEntity {
 				// Then we fill the table Elements
 				Elements[x][y] = ChElement;
 			}
-			return maps;
+			return Elements;
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}

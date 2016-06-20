@@ -21,6 +21,7 @@ public class DAOGetSprite extends DAOEntity {
 		char ChElement = 0;
 
 		try {
+				
 			final String sql = "{call getSprite(?,?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			call.setInt(1, x);

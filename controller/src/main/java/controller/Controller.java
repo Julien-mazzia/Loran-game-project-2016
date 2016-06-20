@@ -16,6 +16,8 @@ public class Controller implements IController {
 
 	/** The model. */
 	private IModel	model;
+	
+	private char Elements[][];
 
 	/**
 	 * Instantiates a new controller.
@@ -28,7 +30,9 @@ public class Controller implements IController {
 	public Controller(final IView view, final IModel model) {
 		this.setView(view);
 		this.setModel(model);
-		this.model.loadMessage("GB");
+		Elements=this.model.loadMessage("GB");
+		this.view.setElements(Elements);
+		
 	}
 
 	/*
@@ -66,18 +70,23 @@ public class Controller implements IController {
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
+		char Elements[][] = null;
 		switch (controllerOrder) {
 			case UP:
-				this.model.loadNewMap(1);
-				break;
-			case LEFT:
-				this.model.loadNewMap(3);
+				Elements = this.model.loadNewMap(1);
+				this.view.setElements(Elements);
 				break;
 			case DOWN:
-				this.model.loadNewMap(2);
+				Elements = this.model.loadNewMap(2);
+				this.view.setElements(Elements);
+				break;
+			case LEFT:
+				Elements = this.model.loadNewMap(3);
+				this.view.setElements(Elements);
 				break;
 			case RIGHT:
-				this.model.loadNewMap(4);
+				Elements = this.model.loadNewMap(4);
+				this.view.setElements(Elements);
 				break;
 
 			default:
@@ -85,4 +94,14 @@ public class Controller implements IController {
 		}
 	}
 
+	public void setElements(char[][] elements) {
+		Elements = elements;
+	}
+	
+	public char[][] loadMap(){
+		Elements= this.model.loadNewMap();
+		return Elements;
+		
+	}
+	
 }

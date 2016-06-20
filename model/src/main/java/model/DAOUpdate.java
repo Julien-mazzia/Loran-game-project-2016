@@ -21,15 +21,15 @@ public class DAOUpdate extends DAOEntity {
 	public Maps updateSprite(int x, int y, String element) {
 
 		try {
+			final DAOGetPosition dao = new DAOGetPosition(DBConnection.getInstance().getConnection());
+			dao.getPosition(element);
 			final String sql = "{call updateSprite(?,?,?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			call.setInt(1, x);
 			call.setInt(2, y);
 			call.setString(3, element);
 			call.execute();
-
-			final DAOGetPosition dao = new DAOGetPosition(DBConnection.getInstance().getConnection());
-			dao.getPosition(element);
+			
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}

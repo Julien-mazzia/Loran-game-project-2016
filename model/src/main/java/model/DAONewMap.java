@@ -15,10 +15,10 @@ public class DAONewMap extends DAOEntity {
 
 	// This method get the new changed map
 
-	public Maps find1(int move) {
+	public char[][] find1(int move) {
 		int x = 0;
 		int y = 0;
-		char Elements[][] = new char[15][20];
+		char Elements[][] = new char[20][15];
 		String Element;
 		char ChElement = 0;
 
@@ -47,7 +47,46 @@ public class DAONewMap extends DAOEntity {
 			}
 			// Send the result to Maps
 			maps = new Maps(Elements, move);
-			return maps;
+			return Elements;
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+	
+	public char[][] find1() {
+		int x = 0;
+		int y = 0;
+		char Elements[][] = new char[20][15];
+		String Element;
+		char ChElement = 0;
+
+		try {
+
+			// This procedure will get the new map
+			final String sql = "{call getNewMap()}";
+			final CallableStatement call = this.getConnection().prepareCall(sql);
+			call.execute();
+			ResultSet resultSet = call.getResultSet();
+
+			while (resultSet.next()) {
+				x = resultSet.getInt("x");
+				y = resultSet.getInt("y");
+				Element = resultSet.getString("Object");
+
+				// change the element to String to char
+				if (Element.length() > 0) {
+					ChElement = Element.charAt(0);
+				} else {
+					ChElement = '-';
+				}
+
+				// Then fill the table Elements
+				Elements[x][y] = ChElement;
+			}
+			// Send the result to Maps
+			return Elements;
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}

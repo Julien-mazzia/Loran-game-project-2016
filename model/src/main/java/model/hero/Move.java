@@ -18,19 +18,20 @@ public class Move {
 	public int y;
 
 	public Move(int move, String type , int x, int y) {
-		
 		switch(move){
 			case 1:
-				up = new Up(x, y-1, type);
+				
+				left = new Left(x, y-1, type);
 				break;
 			case 2:
 				down = new Down(x, y+1, type);
 				break;
 			case 3:
-				left = new Left(x-1, y, type);
+				up = new Up(x-1, y, type);
 				break;
 			case 4:
-				right = new Right(x+1, y, type);
+				
+				right = new Right(x+1, y, type); //R: y+1
 				break;
 		}
 	}

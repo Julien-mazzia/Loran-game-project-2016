@@ -1,5 +1,7 @@
 package contract;
 
+import java.util.Observable;
+
 /**
  * The Interface IView.
  *
@@ -14,4 +16,6 @@ public interface IView {
 	 *          the message
 	 */
 	void printMessage(final String message);
+	public void update(final Observable arg0, final Object arg1);
+	public void setElements(char[][] elements); 
 }
