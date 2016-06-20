@@ -32,7 +32,6 @@ public class Controller implements IController {
 		this.setModel(model);
 		Elements=this.model.loadMessage("GB");
 		this.view.setElements(Elements);
-		
 	}
 
 	/*
@@ -99,7 +98,6 @@ public class Controller implements IController {
 	}
 	
 	public char[][] loadMap(){
-		Elements= this.model.loadNewMap();
 		return Elements;
 		
 	}
