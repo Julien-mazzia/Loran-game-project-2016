@@ -14,18 +14,18 @@ public class RandomMove implements IMonster {
 		Random r = new Random();
 		int choice = 1+r.nextInt(5-1);
 		switch(choice){
-			case 1 :
-				Up up = new Up(x,y-1,type);
-				break;
-			case 2 :
-				Down down = new Down(x,y+1,type);
-				break;
-			case 3 :
-				Left left = new Left(x-1,y,type);
-				break;
-			case 4 :
-				Right right = new Right(x+1,y,type);
-				break;
+		case 1:
+			Left left = new Left(x, y-1, type);
+			break;
+		case 2:
+			Down down = new Down(x, y+1, type);
+			break;
+		case 3:
+			Up up = new Up(x-1, y, type);
+			break;
+		case 4:
+			Right right = new Right(x+1, y, type); //R: y+1
+			break;
 		}
 	}
 

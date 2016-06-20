@@ -8,10 +8,11 @@ public class Monster1 {
 	public Monster1(int x, int y, int xL, int yL) {
 		this.x = x;
 		this.y = y;
-		if(xL-x>=4 || xL-x<=-4 || yL-y>=4 || yL-y<=4){
-		RandomMove random = new RandomMove(x,y, "monster1");
-		}else{
+		if((yL-y>=-3) && (yL-y<=3) && (xL-x>=-3) && (xL-x<=3)){
 			Chase chase = new Chase(x, y, xL, yL, "monster1");
+		
+		}else{
+			RandomMove random = new RandomMove(x,y, "monster1");
 		 
 		}
 		 

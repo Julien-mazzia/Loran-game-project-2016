@@ -7,7 +7,6 @@ public class Kill implements IAction {
 	// This method kill the character
 	public Kill(String type) {
 		if(type=="Lorann"){
-			//End();
 		}else if(type=="Monster1"){
 			Model model = new Model();
 			model.updateSprite(20, 20, "", "recover");
