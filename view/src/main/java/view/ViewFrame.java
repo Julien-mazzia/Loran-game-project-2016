@@ -150,15 +150,20 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *          the message
 	 */
 	public int printMessage(final String message) {
+		int level=5;
 		String[] tabLevel = {"1","2","3","4"};
 		//JOptionPane.showMessageDialog(null, message);
 		JOptionPane jop = new JOptionPane();
-		int level = jop.showOptionDialog(null, "Choisissez votre niveau :", "Choix du niveau",  
+		while(level==5){
+		level = jop.showOptionDialog(null, "Choisissez votre niveau :", "Choix du niveau",  
 				JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, 
 				tabLevel, tabLevel[0]);
-		System.out.println(level);
+		}
 		return level;
 		
+	}
+	public void setVisible(){
+		this.setVisible(false);
 	}
 
 	/*

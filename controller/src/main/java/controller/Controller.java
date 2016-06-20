@@ -28,9 +28,10 @@ public class Controller implements IController {
 	 *          the model
 	 */
 	public Controller(final IView view, final IModel model) {
+		int level = view.printMessage("Appuyer sur les touches 'E', 'F', 'D' ou 'I', pour afficher Hello world dans la langue d votre choix.");
 		this.setView(view);
 		this.setModel(model);
-		Elements=this.model.loadMessage("GB");
+		Elements=this.model.loadMessage("GB", level);
 		this.view.setElements(Elements);
 	}
 
@@ -40,8 +41,7 @@ public class Controller implements IController {
 	 * @see contract.IController#control()
 	 */
 	public void control() {
-		this.view.printMessage("Appuyer sur les touches 'E', 'F', 'D' ou 'I', pour afficher Hello world dans la langue d votre choix.");
-	}
+		}
 
 	/**
 	 * Sets the view.

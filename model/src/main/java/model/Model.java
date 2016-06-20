@@ -3,6 +3,8 @@ package model;
 import java.sql.SQLException;
 import java.util.Observable;
 
+import javax.swing.JOptionPane;
+
 import contract.IController;
 import contract.IModel;
 import model.hero.Lorann;
@@ -49,7 +51,7 @@ public class Model extends Observable implements IModel {
 
 	// Must change this method name
 
-	public char [][] loadMessage(final String key) {
+	public char [][] loadMessage(final String key, int level) {
 		char Elements[][]= null;
 		try {
 			final DAOMaps daomaps = new DAOMaps(DBConnection.getInstance().getConnection());
@@ -129,6 +131,19 @@ public class Model extends Observable implements IModel {
 			return Elements;
 		}
 	}
+	
+	public void newMap(){
+		int level=5;
+		String[] tabLevel = {"1","2","3","4"};
+		//JOptionPane.showMessageDialog(null, message);
+		JOptionPane jop = new JOptionPane();
+		while(level==5){
+		level = jop.showOptionDialog(null, "Choisissez votre niveau :", "Choix du niveau",  
+				JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, 
+				tabLevel, tabLevel[0]);
+		}
+		loadMessage("", level);
+	}
 
 	/*
 	 * (non-Javadoc)
@@ -138,4 +153,5 @@ public class Model extends Observable implements IModel {
 	public Observable getObservable() {
 		return this;
 	}
+
 }

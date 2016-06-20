@@ -50,6 +50,10 @@ public class View implements IView, Runnable {
 				return ControllerOrder.DOWN;
 			case KeyEvent.VK_D:
 				return ControllerOrder.RIGHT;
+			case KeyEvent.VK_SPACE:
+				return ControllerOrder.SPACE;
+			default :
+				break;
 		}
 		return null;
 	}
@@ -59,10 +63,14 @@ public class View implements IView, Runnable {
 	 *
 	 * @see contract.IView#printMessage(java.lang.String)
 	 */
-	public void printMessage(final String message) {
-		this.viewFrame.printMessage(message);
+	public int printMessage(final String message) {
+		int level =this.viewFrame.printMessage(message);
+		return level;
 	}
-
+	
+	public void newLevel(){
+		viewFrame.setVisible();
+	}
 	/*
 	 * (non-Javadoc)
 	 *
