@@ -28,6 +28,13 @@ public class DAOMaps extends DAOEntity {
 			 * fillTable procedure fill the second table mapChanges with all the
 			 * sprite of the current played map
 			 */
+
+			final String sql2 = "{call newMap()}";
+			final CallableStatement call2 = this.getConnection().prepareCall(sql2);
+			call2.execute();
+			final String sql3 = "{call createNewMap()}";
+			final CallableStatement call3 = this.getConnection().prepareCall(sql3);
+			call3.execute();
 			final String sql1 = "{call fillTable()}";
 			final CallableStatement call1 = this.getConnection().prepareCall(sql1);
 			call1.execute();
