@@ -5,7 +5,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.Mobile.Mobile;
+import model.Mobile.Displacement;
 
 public class DAOMaps extends DAOEntity {
 	private Maps maps;

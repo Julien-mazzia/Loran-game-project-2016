@@ -40,7 +40,10 @@ public class Action {
 		if (comp2 == ObjectComportement.PENETRABLE && comp1 != ObjectComportement.MORTAL && type == "Lorann") {
 			Movement move = new Movement(x, y, type);
 		}
-	}
+		if(comp1 == ObjectComportement.LEVELCHANGER && type =="Lorann"){
+			ChangeLevel level = new ChangeLevel();
+		}
+		}
 
 	/*
 	 * this method will choose the appropriate action to do
