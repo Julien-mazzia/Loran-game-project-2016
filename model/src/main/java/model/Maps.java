@@ -47,7 +47,7 @@ public class Maps {
 					//System.out.println(xL+yL);
 					xG = k;
 					yG = l;
-					Monster1 monster1 = new Monster1(xG, yG, xL, yL);
+					//Monster1 monster1 = new Monster1(xG, yG, xL, yL);
 				}
 				if (Elements[k][l] == 'h') {
 					xH = k;

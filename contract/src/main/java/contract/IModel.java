@@ -40,4 +40,5 @@ public interface IModel {
 	char[][] loadNewMap();
 	//Load a spell
 	public void newSpell();
+	public void moveObject();
 }

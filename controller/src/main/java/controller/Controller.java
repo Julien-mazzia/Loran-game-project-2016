@@ -35,6 +35,7 @@ public class Controller implements IController {
 		this.setModel(model);
 		
 		Elements=this.model.loadMessage(level); //load a new map
+		model.moveObject();
 		//this.view.setElements(Elements);
 	}
 

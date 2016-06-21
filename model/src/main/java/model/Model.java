@@ -184,5 +184,7 @@ public class Model extends Observable implements IModel {
 			Spell spell = new Spell();
 		}
 	}
-
+	public void moveObject(){
+		MoveObjects moveObjects = new MoveObjects();
+	}
 }

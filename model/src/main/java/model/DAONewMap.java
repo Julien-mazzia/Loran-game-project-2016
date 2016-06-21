@@ -107,7 +107,8 @@ public class DAONewMap extends DAOEntity {
 
 		return null;
 	}
-
+	
+	
 	@Override
 	public boolean create(Entity entity) {
 		// TODO Auto-generated method stub
