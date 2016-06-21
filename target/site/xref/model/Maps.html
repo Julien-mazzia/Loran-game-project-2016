@@ -51,32 +51,32 @@
 <a class="jxr_linenumber" name="L43" href="#L43">43</a>  					yL = l;
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>  					Lorann lorann = <strong class="jxr_keyword">new</strong> <a href="../model/hero/Lorann.html">Lorann</a>(xL, yL, move);
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>  				}
-<a class="jxr_linenumber" name="L46" href="#L46">46</a>  				<strong class="jxr_keyword">if</strong> (Elements[k][l] == 'g') {
-<a class="jxr_linenumber" name="L47" href="#L47">47</a>  					<em class="jxr_comment">//System.out.println(xL+yL);</em>
-<a class="jxr_linenumber" name="L48" href="#L48">48</a>  					xG = k;
-<a class="jxr_linenumber" name="L49" href="#L49">49</a>  					yG = l;
-<a class="jxr_linenumber" name="L50" href="#L50">50</a>  					<em class="jxr_comment">//Monster1 monster1 = new Monster1(xG, yG, xL, yL);</em>
-<a class="jxr_linenumber" name="L51" href="#L51">51</a>  				}
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>  				<strong class="jxr_keyword">if</strong> (Elements[k][l] == 'h') {
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>  					xH = k;
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>  					yH = l;
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>  					Monster2 monster2 = <strong class="jxr_keyword">new</strong> <a href="../model/Monster/Monster2.html">Monster2</a>(xH, yH);
-<a class="jxr_linenumber" name="L56" href="#L56">56</a>  				}
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>  				<strong class="jxr_keyword">if</strong> (Elements[k][l] == 'z') {
-<a class="jxr_linenumber" name="L58" href="#L58">58</a>  					xZ = k;
-<a class="jxr_linenumber" name="L59" href="#L59">59</a>  					yZ = l;
-<a class="jxr_linenumber" name="L60" href="#L60">60</a>  					Monster3 monster3 = <strong class="jxr_keyword">new</strong> <a href="../model/Monster/Monster3.html">Monster3</a>(xZ, yZ);
-<a class="jxr_linenumber" name="L61" href="#L61">61</a>  				}
-<a class="jxr_linenumber" name="L62" href="#L62">62</a>  				<strong class="jxr_keyword">if</strong> (Elements[k][l] == 'r') {
-<a class="jxr_linenumber" name="L63" href="#L63">63</a>  					xR = k;
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>  					yR = l;
-<a class="jxr_linenumber" name="L65" href="#L65">65</a>  					Monster4 monster4 = <strong class="jxr_keyword">new</strong> <a href="../model/Monster/Monster4.html">Monster4</a>(xR, yR);
-<a class="jxr_linenumber" name="L66" href="#L66">66</a>  				}
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>  				<strong class="jxr_keyword">if</strong>(Elements[k][l] == 'S'){
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>  					xS = k;
-<a class="jxr_linenumber" name="L69" href="#L69">69</a>  					yS = l;
-<a class="jxr_linenumber" name="L70" href="#L70">70</a>  					Spell spell = <strong class="jxr_keyword">new</strong> <a href="../model/hero/Spell.html">Spell</a>(xS, yS);
-<a class="jxr_linenumber" name="L71" href="#L71">71</a>  				}
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  				<em class="jxr_comment">/*if (Elements[k][l] == 'g') {</em>
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  <em class="jxr_comment">					//System.out.println(xL+yL);</em>
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  <em class="jxr_comment">					xG = k;</em>
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  <em class="jxr_comment">					yG = l;</em>
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  <em class="jxr_comment">					//Monster1 monster1 = new Monster1(xG, yG, xL, yL);</em>
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  <em class="jxr_comment">				}</em>
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  <em class="jxr_comment">				if (Elements[k][l] == 'h') {</em>
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  <em class="jxr_comment">					xH = k;</em>
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  <em class="jxr_comment">					yH = l;</em>
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  <em class="jxr_comment">					Monster2 monster2 = new Monster2(xH, yH);</em>
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>  <em class="jxr_comment">				}</em>
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  <em class="jxr_comment">				if (Elements[k][l] == 'z') {</em>
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  <em class="jxr_comment">					xZ = k;</em>
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  <em class="jxr_comment">					yZ = l;</em>
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  <em class="jxr_comment">					Monster3 monster3 = new Monster3(xZ, yZ);</em>
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  <em class="jxr_comment">				}</em>
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>  <em class="jxr_comment">				if (Elements[k][l] == 'r') {</em>
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>  <em class="jxr_comment">					xR = k;</em>
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  <em class="jxr_comment">					yR = l;</em>
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  <em class="jxr_comment">					Monster4 monster4 = new Monster4(xR, yR);</em>
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>  <em class="jxr_comment">				}</em>
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  <em class="jxr_comment">				if(Elements[k][l] == 'S'){</em>
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  <em class="jxr_comment">					xS = k;</em>
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>  <em class="jxr_comment">					yS = l;</em>
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>  <em class="jxr_comment">					Spell spell = new Spell(xS, yS);</em>
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  <em class="jxr_comment">				}*/</em>
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>  				
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>  				
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>  

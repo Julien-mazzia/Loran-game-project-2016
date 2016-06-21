@@ -51,6 +51,12 @@ public class MoveObjects {
 		y = tab1[1];
 		Spell spell = new Spell(direction, x, y);
 		}
+		try {
+			Runtime.getRuntime().exec("cls");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		model.loadNewMap();
 		return this.direction;
 	}
