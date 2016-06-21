@@ -14,7 +14,9 @@ public class DAOMaps extends DAOEntity {
 		super(connection);
 	}
 
-	// This method get the initial map
+	/* This method get the initial map and put it in a new table called mapchanges
+	 * and recover all the elements
+	 */
 
 	public char [][] find1() {
 		int x = 0;
@@ -26,7 +28,8 @@ public class DAOMaps extends DAOEntity {
 		try {
 			/*
 			 * fillTable procedure fill the second table mapChanges with all the
-			 * sprite of the current played map
+			 * sprite of the current played map and NewMap will drop the old
+			 * table and createNewMap create a new virgin one
 			 */
 
 			final String sql2 = "{call newMap()}";
@@ -64,7 +67,8 @@ public class DAOMaps extends DAOEntity {
 				// Then we fill the table Elements
 				Elements[x][y] = ChElement;
 			}
-
+			
+			// print of the map into the console
 			for (int k = 0; k < 15; k++) {
 				for (int l = 0; l < 20; l++) {
 					System.out.print(Elements[l][k]);

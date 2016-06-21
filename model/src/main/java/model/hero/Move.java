@@ -25,6 +25,7 @@ public class Move {
 		File f;
 		switch(move){
 			case 1:
+				//we save in a file the latest move
 				f = new File ("OldMove");
 				try
 				{
@@ -39,6 +40,7 @@ public class Move {
 				left = new Left(x, y-1, type);
 				break;
 			case 2:
+				//we save in a file the latest move
 				f = new File ("OldMove");
 				try
 				{
@@ -53,6 +55,7 @@ public class Move {
 				down = new Down(x, y+1, type);
 				break;
 			case 3:
+				//we save in a file the latest move
 				f = new File ("OldMove");
 				try
 				{
@@ -67,6 +70,7 @@ public class Move {
 				up = new Up(x-1, y, type);
 				break;
 			case 4:
+				//we save in a file the latest move
 				f = new File ("OldMove");
 				try
 				{

@@ -41,7 +41,7 @@ public class DAOGetPosition extends DAOEntity {
 	}
 
 	/*
-	 * This method get the location of the element, element is a "String" to put
+	 * This method get the location of the element. Element is a "String" to put
 	 * in the database like "l". Then we have the x and y location and we can
 	 * change the sprite. Ex : Serpent door -> ending door
 	 */
@@ -71,7 +71,13 @@ public class DAOGetPosition extends DAOEntity {
 			e.printStackTrace();
 		}
 	}
-	
+
+	/*
+	 * This method get the location of the element. Element is a "String" to put
+	 * in the database like "l". Then we have the x and y location
+	 * 
+	 */
+
 	public int[] getPositionElement(String element) {
 		int tab[] = new int[2];
 		int x;
@@ -87,8 +93,8 @@ public class DAOGetPosition extends DAOEntity {
 			if (resultSet.first()) {
 				x = resultSet.getInt("x");
 				y = resultSet.getInt("y");
-				tab[0]=x;
-				tab[1]=y;
+				tab[0] = x;
+				tab[1] = y;
 			}
 			return tab;
 		} catch (final SQLException e) {
@@ -96,6 +102,7 @@ public class DAOGetPosition extends DAOEntity {
 		}
 		return null;
 	}
+
 	@Override
 	public boolean create(Entity entity) {
 		// TODO Auto-generated method stub

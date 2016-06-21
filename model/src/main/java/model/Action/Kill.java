@@ -7,22 +7,49 @@ import model.Model;
 public class Kill implements IAction, IController {
 	// This method kill the character
 	public Kill(String type) {
-		
+		int tab[];
+		int x;
+		int y;
 		if(type=="Lorann"){
 			Model model = new Model();
 			model.newMap();
-		}else if(type=="Monster1"){
+		}else if(type=="monster1"){
 			Model model = new Model();
-			model.updateSprite(20, 20, "", "recover");
-		}else if(type=="Monster2"){
+			tab=model.LocateElement("g");
+			x = tab[0];
+			y = tab[1];
+			model.updateSprite(x, y, "", "recover");
+			tab=model.LocateElement("S");
+			x = tab[0];
+			y = tab[1];
+			model.updateSprite(x, y, "", "recover");
+		}else if(type=="monster2"){
 			Model model = new Model();
-			model.updateSprite(20, 20, "", "recover");
-		}else if(type=="Monster3"){
+			tab=model.LocateElement("h");
+			x = tab[0];
+			y = tab[1];
+			model.updateSprite(x, y, "", "recover");
+			tab=model.LocateElement("S");
+			x = tab[0];
+			y = tab[1];
+		}else if(type=="monster3"){
 			Model model = new Model();
-			model.updateSprite(20, 20, "", "recover");
-		}else if(type=="Monster4"){
+			tab=model.LocateElement("z");
+			x = tab[0];
+			y = tab[1];
+			model.updateSprite(x, y, "", "recover");
+			tab=model.LocateElement("S");
+			x = tab[0];
+			y = tab[1];
+		}else if(type=="monster4"){
 			Model model = new Model();
-			model.updateSprite(20, 20, "", "recover");
+			tab=model.LocateElement("r");
+			x = tab[0];
+			y = tab[1];
+			model.updateSprite(x, y, "", "recover");
+			tab=model.LocateElement("S");
+			x = tab[0];
+			y = tab[1];
 		}
 	}
 

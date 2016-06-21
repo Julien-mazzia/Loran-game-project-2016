@@ -112,4 +112,9 @@ public class View implements IView, Runnable, ActionListener {
 	public void timer(){
 		
 	}
+
+	public int printMessage() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

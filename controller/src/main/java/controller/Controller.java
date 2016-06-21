@@ -28,11 +28,14 @@ public class Controller implements IController {
 	 *          the model
 	 */
 	public Controller(final IView view, final IModel model) {
-		int level = view.printMessage("Appuyer sur les touches 'E', 'F', 'D' ou 'I', pour afficher Hello world dans la langue d votre choix.");
+		//Choose a level
+		int level = view.printMessage();
+		// send in parameter the objects
 		this.setView(view);
 		this.setModel(model);
-		Elements=this.model.loadMessage("GB", level);
-		this.view.setElements(Elements);
+		
+		Elements=this.model.loadMessage(level); //load a new map
+		//this.view.setElements(Elements);
 	}
 
 	/*
@@ -70,25 +73,25 @@ public class Controller implements IController {
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		char Elements[][] = null;
-		switch (controllerOrder) {
-			case UP:
-				Elements = this.model.loadNewMap(1);
+		switch (controllerOrder) { // switch on the movement order
+			case UP: //if key z pressed
+				Elements = this.model.loadNewMap(1); // load the new map and send the wanted movement
 				this.view.setElements(Elements);
 				break;
-			case DOWN:
-				Elements = this.model.loadNewMap(2);
+			case DOWN: //if key s pressed
+				Elements = this.model.loadNewMap(2); // load the new map and send the wanted movement
 				this.view.setElements(Elements);
 				break;
-			case LEFT:
-				Elements = this.model.loadNewMap(3);
+			case LEFT: //if key q pressed
+				Elements = this.model.loadNewMap(3); // load the new map and send the wanted movement
 				this.view.setElements(Elements);
 				break;
-			case RIGHT:
-				Elements = this.model.loadNewMap(4);
+			case RIGHT: //if key l pressed
+				Elements = this.model.loadNewMap(4); // load the new map and send the wanted movement
 				this.view.setElements(Elements);
 				break;
-			case SPACE:
-				this.model.newSpell();
+			case SPACE: //if key space pressed
+				this.model.newSpell(); // create a new spell
 				break;
 			default:
 				break;

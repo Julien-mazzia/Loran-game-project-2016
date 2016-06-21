@@ -25,7 +25,7 @@ public class Maps {
 	
 	int xS;
 	int yS;
-	// This method recover the location of Lorann and of the monsters
+	// This method recover the location of Lorann, the spell and the monsters
 	public Maps(char[][] Elements, int move) {
 		
 

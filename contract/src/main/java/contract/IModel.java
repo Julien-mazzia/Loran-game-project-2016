@@ -22,7 +22,7 @@ public interface IModel {
 	 * @param key
 	 *          the key
 	 */
-	char [][] loadMessage(String key, int level);
+	char [][] loadMessage(int level);
 
 	/**
 	 * Gets the observable.
@@ -30,7 +30,9 @@ public interface IModel {
 	 * @return the observable
 	 */
 	Observable getObservable();
+	//Load the new map
 	char[][] loadNewMap(int move);
 	char[][] loadNewMap();
+	//Load a spell
 	public void newSpell();
 }

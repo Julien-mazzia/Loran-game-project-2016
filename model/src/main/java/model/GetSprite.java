@@ -57,11 +57,12 @@ public class GetSprite {
 		case 'k':
 			Kneecap knee = new Kneecap(x, y, type);
 			break;
-		case 'f':
+		case 'S':
 			action = new Action("Spell", type);
+			Movement move = new Movement(x, y, type);
 			break;
 		default:
-			Movement move = new Movement(x, y, type);
+			Movement move2 = new Movement(x, y, type);
 			break;
 		}
 	}

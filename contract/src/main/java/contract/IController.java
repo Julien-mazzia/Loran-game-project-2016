@@ -19,6 +19,9 @@ public interface IController {
 	 *          the controller order
 	 */
 	public void orderPerform(ControllerOrder controllerOrder);
+	
+	//setElements
+	
 	public void setElements(char[][] elements);
 	public char[][] loadMap();
 }

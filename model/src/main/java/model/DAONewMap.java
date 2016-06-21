@@ -13,7 +13,7 @@ public class DAONewMap extends DAOEntity {
 		super(connection);
 	}
 
-	// This method get the new changed map
+	// This method get the new changed map and take in parameter the movement
 
 	public char[][] find1(int move) {
 		int x = 0;
@@ -54,7 +54,9 @@ public class DAONewMap extends DAOEntity {
 
 		return null;
 	}
-	
+
+	// This method get the new changed map
+
 	public char[][] find1() {
 		int x = 0;
 		int y = 0;

@@ -19,7 +19,7 @@ public class Model extends Observable implements IModel {
 
 	/** The message. */
 	private String message;
-	
+
 	private IController controller;
 
 	/**
@@ -44,24 +44,24 @@ public class Model extends Observable implements IModel {
 	 * @param message
 	 *            the new message
 	 */
-	private void setMessage(final String message) {
+	private void setMessage() {
 		this.message = message;
 		this.setChanged();
 		this.notifyObservers();
 	}
 
-	// Must change this method name
+	// loadMessage will recover the wanted level
 
-	public char [][] loadMessage(final String key, int level) {
-		char Elements[][]= null;
+	public char[][] loadMessage(int level) {
+		char Elements[][] = null;
 		try {
 			final DAOMaps daomaps = new DAOMaps(DBConnection.getInstance().getConnection());
-			Elements=daomaps.find1();
+			Elements = daomaps.find1();
 			return Elements;
 
 		} catch (final SQLException e) {
 			e.printStackTrace();
-			Elements[0][0]=0;
+			Elements[0][0] = 0;
 			return Elements;
 		}
 
@@ -78,8 +78,10 @@ public class Model extends Observable implements IModel {
 			e.printStackTrace();
 		}
 	}
-	
-	public int [] LoacteElement(String type) {
+
+	// LoacteElement will send back the x and y location of the element
+
+	public int[] LocateElement(String type) {
 		int tab[] = null;
 		try {
 			final DAOGetPosition daoSprite = new DAOGetPosition(DBConnection.getInstance().getConnection());
@@ -90,13 +92,13 @@ public class Model extends Observable implements IModel {
 		}
 		return tab;
 	}
-	
+
 	// updateSprite will send to the correct updateSprite all the data it need
 	// to have
 
 	public void updateSprite(int x, int y, String type) {
 		try {
-			
+
 			final DAOUpdate daoUpdate = new DAOUpdate(DBConnection.getInstance().getConnection());
 			daoUpdate.updateSprite(x, y, type);
 		} catch (final SQLException e) {
@@ -119,7 +121,7 @@ public class Model extends Observable implements IModel {
 
 	// loadNewMap recover the mapChanges in the database
 
-	public char [][] loadNewMap(int move) {
+	public char[][] loadNewMap(int move) {
 		try {
 			final DAONewMap daomaps = new DAONewMap(DBConnection.getInstance().getConnection());
 			char Elements[][] = daomaps.find1(move);
@@ -127,12 +129,14 @@ public class Model extends Observable implements IModel {
 		} catch (final SQLException e) {
 			e.printStackTrace();
 			char Elements[][] = null;
-			Elements[0][0]=0;
+			Elements[0][0] = 0;
 			return Elements;
 		}
 	}
-	
-	public char [][] loadNewMap() {
+
+	// loadNewMap recover the mapChanges in the database
+
+	public char[][] loadNewMap() {
 		try {
 			final DAONewMap daomaps = new DAONewMap(DBConnection.getInstance().getConnection());
 			char Elements[][] = daomaps.find1();
@@ -140,22 +144,22 @@ public class Model extends Observable implements IModel {
 		} catch (final SQLException e) {
 			e.printStackTrace();
 			char Elements[][] = null;
-			Elements[0][0]=0;
+			Elements[0][0] = 0;
 			return Elements;
 		}
 	}
-	
-	public void newMap(){
-		int level=5;
-		String[] tabLevel = {"1","2","3","4"};
-		//JOptionPane.showMessageDialog(null, message);
+
+	// newMap create the dialog panel and recover the level choosed
+
+	public void newMap() {
+		int level = 5;
+		String[] tabLevel = { "1", "2", "3", "4" };
 		JOptionPane jop = new JOptionPane();
-		while(level==5){
-		level = jop.showOptionDialog(null, "Choisissez votre niveau :", "Choix du niveau",  
-				JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, 
-				tabLevel, tabLevel[0]);
+		while (level == 5) {
+			level = jop.showOptionDialog(null, "Choisissez votre niveau :", "Choix du niveau",
+					JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, tabLevel, tabLevel[0]);
 		}
-		loadMessage("", level);
+		loadMessage(level);
 	}
 
 	/*
@@ -166,8 +170,16 @@ public class Model extends Observable implements IModel {
 	public Observable getObservable() {
 		return this;
 	}
-	public void newSpell(){
-		Spell spell = new Spell();
+
+	// newSpell create a new spell only if there are none on the map
+
+	public void newSpell() {
+		int tab[] = new int[1];
+		tab[0] = 0;
+		tab = LocateElement("S");
+		if (tab[0] == 0) {
+			Spell spell = new Spell();
+		}
 	}
 
 }

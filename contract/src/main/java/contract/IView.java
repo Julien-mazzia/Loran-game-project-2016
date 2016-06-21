@@ -16,8 +16,11 @@ public interface IView {
 	 *          the message
 	 * @return 
 	 */
-	int printMessage(final String message);
+	// print the first message
+	int printMessage();
+	//update
 	public void update(final Observable arg0, final Object arg1);
 	public void setElements(char[][] elements); 
+	// create a new level
 	public void newLevel();
 }

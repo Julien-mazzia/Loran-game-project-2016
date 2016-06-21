@@ -22,14 +22,14 @@ public class DAOUpdate extends DAOEntity {
 
 		try {
 			final DAOGetPosition dao = new DAOGetPosition(DBConnection.getInstance().getConnection());
-			dao.getPosition(element);
+			dao.getPosition(element); // here we override the previous element
 			final String sql = "{call updateSprite(?,?,?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			call.setInt(1, x);
 			call.setInt(2, y);
 			call.setString(3, element);
 			call.execute();
-			
+
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
@@ -71,6 +71,10 @@ public class DAOUpdate extends DAOEntity {
 			final String sql = "{call updateSprite(?,?,?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			final DAOGetPosition dao = new DAOGetPosition(DBConnection.getInstance().getConnection());
+			/*
+			 * if the object mustn't be changed yet, the sentence "no recover"
+			 * will send the element in a new class
+			 */
 			if (sentence == "no recover") {
 				dao.getPosition(element, "no recover");
 			}

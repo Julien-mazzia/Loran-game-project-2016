@@ -12,7 +12,8 @@ public class DAOGetSprite extends DAOEntity {
 	}
 
 	/*
-	 * This method get the sprite in the x and y knew location
+	 * This method get the sprite in the x and y knew location of the spell or
+	 * of the characters
 	 */
 
 	public Maps getSprite(int x, int y, String type) {
@@ -21,7 +22,7 @@ public class DAOGetSprite extends DAOEntity {
 		char ChElement = 0;
 
 		try {
-				
+
 			final String sql = "{call getSprite(?,?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			call.setInt(1, x);
@@ -30,16 +31,20 @@ public class DAOGetSprite extends DAOEntity {
 			ResultSet resultSet = call.getResultSet();
 
 			if (resultSet.first()) {
-				// Element is the result of the getSprite procedure
-				Element = resultSet.getString("Object");
-				// if the element is consider as a char we can change him
+				Element = resultSet.getString("Object"); // Element is the
+															// result of the
+															// getSprite
+															// procedure
 				if (Element.length() > 0) {
-					ChElement = Element.charAt(0);
-					// if the element equal "null", he will be changed in -
-				} else {
+					ChElement = Element.charAt(0); // if the element is consider
+													// as a char we can change
+													// him
+				} else { // if the element equal "null", he will be changed in
+							// '-'
 					ChElement = '-';
 				}
 			}
+			// Then getSprite will choose the right class to call
 			GetSprite sprite = new GetSprite(ChElement, x, y, type);
 			return null;
 		} catch (final SQLException e) {
