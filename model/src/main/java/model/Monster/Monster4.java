@@ -5,17 +5,20 @@ public class Monster4 {
 	int y;
 
 	// Monster method get x and y position of Monster
-	public Monster4(int x, int y) {
+	public Monster4(int x, int y, int xL, int yL) {
 		this.x = x;
 		this.y = y;
-		//if(xLorann>4 || yLorann>4){
-		RandomMove random = new RandomMove(x,y, "monster4");
-		/* }else{
-		 * Chase chase = new Chase(xLorann, YLorann)
-		 * 
-		 * }
-		 */
+		int deltaX = Math.abs(xL-x);
+		int deltaY = Math.abs(yL-y);
+		if(deltaX<=3 && deltaY<=3){
+			Chase chase = new Chase(x, y, xL, yL, "monster4");
+		}else{
+			RandomMove random = new RandomMove(x,y, "monster4");
+		 
+		}
+		 
 	}
+	
 
 	public int getX() {
 		return x;

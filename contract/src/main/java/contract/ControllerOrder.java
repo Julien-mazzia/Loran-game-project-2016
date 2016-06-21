@@ -12,5 +12,8 @@ public enum ControllerOrder {
 	DOWN, //move down
 	LEFT, //move left
 	RIGHT, //move right
-	SPACE //launch spell
+	SPELL_UP, //launch spell
+	SPELL_DOWN,
+	SPELL_LEFT,
+	SPELL_RIGHT
 }

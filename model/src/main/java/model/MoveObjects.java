@@ -8,18 +8,21 @@ import java.io.IOException;
 import javax.swing.Timer;
 
 import model.Monster.Monster1;
+import model.Monster.Monster2;
+import model.Monster.Monster3;
+import model.Monster.Monster4;
+import model.hero.Spell;
 
-public class MoveObjects implements ActionListener {
-	Timer timer = new Timer(1000,this);
+public class MoveObjects {
 	int tab[];
 	int tab1[];
-	public MoveObjects() {
-		timer.start();
-		
+	int direction;
+	
+	public MoveObjects(){
 		
 	}
-	public void actionPerformed(ActionEvent e) {
-		Console console = System.console();    
+	
+	public int Movement(int direction, int count) {
 		Model model = new Model();
 		tab = model.LocateElement("l");
 		int xL = tab[0];
@@ -28,7 +31,28 @@ public class MoveObjects implements ActionListener {
 		int x = tab1[0];
 		int y = tab1[1];
 		Monster1 monster1 = new Monster1(x, y, xL, yL);
+		//Model model = new Model();
+		tab1 = model.LocateElement("h");
+		x = tab1[0];
+		y = tab1[1];
+		Monster2 monster2 = new Monster2(x, y, xL, yL);
+		tab1 = model.LocateElement("z");
+		x = tab1[0];
+		y = tab1[1];
+		Monster3 monster3 = new Monster3(x, y, xL, yL);
+		tab1 = model.LocateElement("r");
+		x = tab1[0];
+		y = tab1[1];
+		Monster4 monster4 = new Monster4(x, y, xL, yL);
+		this.direction=direction;
+		if(count!=0){
+		tab1 = model.LocateElement("S");
+		x = tab1[0];
+		y = tab1[1];
+		Spell spell = new Spell(direction, x, y);
+		}
 		model.loadNewMap();
+		return this.direction;
 	}
 
 }

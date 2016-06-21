@@ -8,8 +8,6 @@ import java.util.Observable;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
-import org.junit.experimental.theories.Theories;
-
 import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
@@ -54,8 +52,14 @@ public class View implements IView, Runnable, ActionListener {
 				return ControllerOrder.DOWN;
 			case KeyEvent.VK_D:
 				return ControllerOrder.RIGHT;
-			case KeyEvent.VK_SPACE:
-				return ControllerOrder.SPACE;
+			case KeyEvent.VK_UP :
+				return ControllerOrder.SPELL_UP;
+			case KeyEvent.VK_DOWN :
+				return ControllerOrder.SPELL_DOWN;
+			case KeyEvent.VK_LEFT :
+				return ControllerOrder.SPELL_LEFT;
+			case KeyEvent.VK_RIGHT :
+				return ControllerOrder.SPELL_RIGHT;
 			default :
 				break;
 		}

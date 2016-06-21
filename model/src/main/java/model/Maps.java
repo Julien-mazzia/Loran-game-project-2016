@@ -43,7 +43,7 @@ public class Maps {
 					yL = l;
 					Lorann lorann = new Lorann(xL, yL, move);
 				}
-				if (Elements[k][l] == 'g') {
+				/*if (Elements[k][l] == 'g') {
 					//System.out.println(xL+yL);
 					xG = k;
 					yG = l;
@@ -68,7 +68,7 @@ public class Maps {
 					xS = k;
 					yS = l;
 					Spell spell = new Spell(xS, yS);
-				}
+				}*/
 				
 				
 

@@ -16,12 +16,10 @@ public interface IController {
 	 * Order perform.
 	 *
 	 * @param controllerOrder
-	 *          the controller order
 	 */
 	public void orderPerform(ControllerOrder controllerOrder);
 	
-	//setElements
 	
-	public void setElements(char[][] elements);
 	public char[][] loadMap();
+	public void setDirection(int direction);
 }

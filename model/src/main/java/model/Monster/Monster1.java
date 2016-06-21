@@ -11,7 +11,6 @@ public class Monster1 {
 		int deltaX = Math.abs(xL-x);
 		int deltaY = Math.abs(yL-y);
 		if(deltaX<=3 && deltaY<=3){
-			System.out.println("Hello");
 			Chase chase = new Chase(x, y, xL, yL, "monster1");
 		}else{
 			RandomMove random = new RandomMove(x,y, "monster1");

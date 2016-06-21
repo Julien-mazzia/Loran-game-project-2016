@@ -21,7 +21,7 @@ public class Action {
 				|| comp1 == ObjectComportement.POINTS && type == "monster3"
 				|| comp1 == ObjectComportement.POINTS && type == "monster4"
 				|| comp1 == ObjectComportement.POINTS && type == "Spell") {
-			Block block = new Block(type);
+			Block block = new Block(type, x, y);
 		}
 		// If there is the Ending door on the next sprite
 		if (comp1 == ObjectComportement.MORTAL

@@ -1,5 +1,10 @@
 package controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Timer;
+
 import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
@@ -9,7 +14,7 @@ import contract.IView;
 /**
  * The Class Controller.
  */
-public class Controller implements IController {
+public class Controller implements IController, ActionListener {
 
 	/** The view. */
 	private IView		view;
@@ -18,6 +23,11 @@ public class Controller implements IController {
 	private IModel	model;
 	
 	private char Elements[][];
+	
+	private int count=0;
+	
+	public int direction=0;
+	Timer timer = new Timer(1000, this);
 
 	/**
 	 * Instantiates a new controller.
@@ -35,7 +45,7 @@ public class Controller implements IController {
 		this.setModel(model);
 		
 		Elements=this.model.loadMessage(level); //load a new map
-		model.moveObject();
+		timer.start();
 		//this.view.setElements(Elements);
 	}
 
@@ -44,8 +54,6 @@ public class Controller implements IController {
 	 * 
 	 * @see contract.IController#control()
 	 */
-	public void control() {
-		}
 
 	/**
 	 * Sets the view.
@@ -91,8 +99,21 @@ public class Controller implements IController {
 				Elements = this.model.loadNewMap(4); // load the new map and send the wanted movement
 				this.view.setElements(Elements);
 				break;
-			case SPACE: //if key space pressed
-				this.model.newSpell(); // create a new spell
+			case SPELL_UP: //if key space pressed
+				direction = -1;
+				this.model.newSpell(direction); // create a new spell
+				break;
+			case SPELL_DOWN: //if key space pressed
+				direction = 1;
+				this.model.newSpell(direction); // create a new spell
+				break;
+			case SPELL_LEFT: //if key space pressed
+				direction = -2;
+				this.model.newSpell(direction); // create a new spell
+				break;
+			case SPELL_RIGHT: //if key space pressed
+				direction = 2;
+				this.model.newSpell(direction); // create a new spell
 				break;
 			default:
 				break;
@@ -105,6 +126,29 @@ public class Controller implements IController {
 	
 	public char[][] loadMap(){
 		return Elements;
+		
+	}
+
+	public void control() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getDirection() {
+		return direction;
+	}
+
+	public void setDirection(int direction) {
+		this.direction = direction;
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		direction = model.moveObject(direction, count);
+		if(direction!=0){
+			count=1;
+		}else{
+			count=0;
+		}
 		
 	}
 	

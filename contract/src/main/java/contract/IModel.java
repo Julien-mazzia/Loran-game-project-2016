@@ -32,13 +32,24 @@ public interface IModel {
 	Observable getObservable();
 	//Load the new map
 	/**
-	 * 
-	 * @param move
+	 * Load the map with the movement of Lorann
+	 * @param move : int
 	 * @return
 	 */
 	char[][] loadNewMap(int move);
+	/**
+	 * Load the map
+	 */
 	char[][] loadNewMap();
-	//Load a spell
-	public void newSpell();
-	public void moveObject();
+	/**Create a new spell with his direction
+	 * @param direction
+	 */
+	public void newSpell(int direction);
+	/**
+	 * Move all the objects without Lorann
+	 * @param direction : int
+	 * @param count : int
+	 * @return
+	 */
+	public int moveObject(int direction, int count);
 }

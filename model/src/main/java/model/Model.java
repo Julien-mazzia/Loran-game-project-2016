@@ -5,6 +5,7 @@ import java.util.Observable;
 
 import javax.swing.JOptionPane;
 
+import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
 import model.hero.Lorann;
@@ -15,18 +16,20 @@ import model.hero.Spell;
  *
  * @author Jean-Aymeric Diet
  */
-public class Model extends Observable implements IModel {
+public class Model extends Observable implements IModel, IController {
 
 	/** The message. */
 	private String message;
 
 	private IController controller;
+	
+	int direction;
 
 	/**
 	 * Instantiates a new model.
 	 */
 	public Model() {
-		this.message = "";
+		
 	}
 
 	/*
@@ -51,7 +54,6 @@ public class Model extends Observable implements IModel {
 	}
 
 	// loadMessage will recover the wanted level
-
 	public char[][] loadMessage(int level) {
 		char Elements[][] = null;
 		try {
@@ -176,15 +178,49 @@ public class Model extends Observable implements IModel {
 
 	// newSpell create a new spell only if there are none on the map
 
-	public void newSpell() {
+	public void newSpell(int direction) {
 		int tab[] = new int[1];
 		tab[0] = 0;
 		tab = LocateElement("S");
+		int tab2[] = LocateElement("l");
+		int x=tab2[0];
+		int y=tab2[1];
 		if (tab[0] == 0) {
-			Spell spell = new Spell();
+			Spell spell = new Spell(direction, x, y);
 		}
 	}
-	public void moveObject(){
-		MoveObjects moveObjects = new MoveObjects();
+	public int moveObject(int direction, int count){
+		this.direction = direction;
+		MoveObjects move = new MoveObjects();
+		direction = move.Movement(direction, count);
+		return direction;
+	}
+
+	public int getDirection() {
+		return direction;
+	}
+
+	public void setDirection(int direction) {
+		this.direction= this.direction*direction;
+	}
+
+	public void control() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void orderPerform(ControllerOrder controllerOrder) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setElements(char[][] elements) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public char[][] loadMap() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -78,4 +78,9 @@ public class Kill implements IAction, IController {
 		return null;
 	}
 
+	public void setDirection(int direction) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
