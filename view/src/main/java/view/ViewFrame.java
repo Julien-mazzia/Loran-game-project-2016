@@ -149,7 +149,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @param message
 	 *          the message
 	 */
-	public int printMessage(final String message) {
+	public int printMessage() {
 		int level=5;
 		String[] tabLevel = {"1","2","3","4"};
 		//JOptionPane.showMessageDialog(null, message);

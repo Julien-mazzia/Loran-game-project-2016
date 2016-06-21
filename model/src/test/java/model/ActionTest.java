@@ -1,7 +1,6 @@
-/**
- *
- */
 package model;
+
+import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -10,12 +9,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-/**
- * The Class ModelTest.
- *
- * @author Jean-Aymeric Diet
- */
-public class ModelTest {
+public class ActionTest {
 	private Model model;
 
 	/**
@@ -58,13 +52,9 @@ public class ModelTest {
 	@After
 	public void tearDown() throws Exception {
 	}
-
-	/**
-	 * Test method for {@link model.Model#getMessage()}.
-	 */
-	@Test
-	public void testGetMessage() {
+	/*@Test
+	public void test() {
 		Assert.assertEquals("", this.model.getMessage());
-	}
+	}*/
 
 }

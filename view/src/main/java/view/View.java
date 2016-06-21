@@ -67,8 +67,8 @@ public class View implements IView, Runnable, ActionListener {
 	 *
 	 * @see contract.IView#printMessage(java.lang.String)
 	 */
-	public int printMessage(final String message) {
-		int level =this.viewFrame.printMessage(message);
+	public int printMessage() {
+		int level =this.viewFrame.printMessage();
 		return level;
 	}
 	
@@ -111,10 +111,5 @@ public class View implements IView, Runnable, ActionListener {
 	}
 	public void timer(){
 		
-	}
-
-	public int printMessage() {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 }
