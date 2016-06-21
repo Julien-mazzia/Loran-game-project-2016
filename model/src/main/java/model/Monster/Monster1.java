@@ -8,7 +8,10 @@ public class Monster1 {
 	public Monster1(int x, int y, int xL, int yL) {
 		this.x = x;
 		this.y = y;
-		if((xL-x>=-3 || xL-x<=3) || (yL-y>=-3 || yL-y<=3)){
+		int deltaX = Math.abs(xL-x);
+		int deltaY = Math.abs(yL-y);
+		if(deltaX<=3 && deltaY<=3){
+			System.out.println("Hello");
 			Chase chase = new Chase(x, y, xL, yL, "monster1");
 		}else{
 			RandomMove random = new RandomMove(x,y, "monster1");

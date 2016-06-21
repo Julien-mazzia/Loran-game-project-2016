@@ -44,6 +44,7 @@ public class Maps {
 					Lorann lorann = new Lorann(xL, yL, move);
 				}
 				if (Elements[k][l] == 'g') {
+					//System.out.println(xL+yL);
 					xG = k;
 					yG = l;
 					Monster1 monster1 = new Monster1(xG, yG, xL, yL);

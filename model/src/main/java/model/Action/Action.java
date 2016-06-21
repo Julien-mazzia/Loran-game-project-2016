@@ -53,8 +53,8 @@ public class Action {
 		if ((NextType == "monster1" || NextType == "monster2" || NextType == "monster3" || NextType == "monster4")
 				&& type == "Lorann") {
 			this.kill = new Kill(type);
-		} else if (NextType == "Lorann" && (NextType == "monster1" || NextType == "monster2" || NextType == "monster3"
-				|| NextType == "monster4")) {
+		} else if (NextType == "Lorann" && (type == "monster1" || type == "monster2" || type == "monster3"
+				|| type == "monster4")) {
 			this.kill = new Kill(NextType);
 		}
 
