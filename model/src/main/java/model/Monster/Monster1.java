@@ -20,10 +20,16 @@ public class Monster1 {
 		 
 	}
 
+	/**
+	 * @return x corresponding at 
+	 */
 	public int getX() {
 		return x;
 	}
 
+	/**
+	 * @param x
+	 */
 	public void setX(int x) {
 		this.x = x;
 	}

@@ -31,6 +31,11 @@ public interface IModel {
 	 */
 	Observable getObservable();
 	//Load the new map
+	/**
+	 * 
+	 * @param move
+	 * @return
+	 */
 	char[][] loadNewMap(int move);
 	char[][] loadNewMap();
 	//Load a spell

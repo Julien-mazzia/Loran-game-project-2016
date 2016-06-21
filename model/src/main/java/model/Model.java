@@ -121,6 +121,9 @@ public class Model extends Observable implements IModel {
 
 	// loadNewMap recover the mapChanges in the database
 
+	/* (non-Javadoc)
+	 * @see contract.IModel#loadNewMap(int)
+	 */
 	public char[][] loadNewMap(int move) {
 		try {
 			final DAONewMap daomaps = new DAONewMap(DBConnection.getInstance().getConnection());
